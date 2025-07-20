@@ -4,10 +4,13 @@ using System;
 
 namespace RPG.Character
 {
-  public class EmenyController : MonoBehaviour
+  public class EnemyController : MonoBehaviour
   {
     private GameObject player;
     private Movement movementCmp;
+
+    private AIBaseState currentState;
+    public AIReturnState returnState = new AIReturnState();
 
     public float chaseRange = 2.5f;
     public float attackRange = 0.75f;
@@ -15,15 +18,22 @@ namespace RPG.Character
 
     private void Awake()
     {
+      currentState = returnState;
       player = GameObject.FindWithTag(Constants.PLAYER_TAG);
       movementCmp = GetComponent<Movement>();
       print(movementCmp);
+    }
+
+    private void Start()
+    {
+      currentState.EnterState(this);
     }
 
     private void Update()
     {
       CalculateDistanceFromPlayer();
       ChasePlayer();
+      currentState.UpdateState(this);
     }
 
     private void ChasePlayer()
