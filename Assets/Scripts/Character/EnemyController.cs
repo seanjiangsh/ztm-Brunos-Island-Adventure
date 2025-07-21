@@ -7,21 +7,27 @@ namespace RPG.Character
   public class EnemyController : MonoBehaviour
   {
     private GameObject player;
-    private Movement movementCmp;
+
+
+    public float chaseRange = 2.5f;
+    public float attackRange = 0.75f;
+
+    // NonSerialized attribute is used to prevent serialization of these fields in Unity's inspector
+    [NonSerialized] public float distanceFromPlayer;
+    [NonSerialized] public Vector3 originalPosition;
+    [NonSerialized] public Movement movementCmp;
 
     private AIBaseState currentState;
     public AIReturnState returnState = new AIReturnState();
 
-    public float chaseRange = 2.5f;
-    public float attackRange = 0.75f;
-    [NonSerialized] public float distanceFromPlayer;
-
     private void Awake()
     {
       currentState = returnState;
+
       player = GameObject.FindWithTag(Constants.PLAYER_TAG);
       movementCmp = GetComponent<Movement>();
-      print(movementCmp);
+
+      originalPosition = transform.position;
     }
 
     private void Start()

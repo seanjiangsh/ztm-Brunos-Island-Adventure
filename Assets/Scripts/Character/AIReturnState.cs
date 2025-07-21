@@ -6,8 +6,8 @@ namespace RPG.Character
   {
     public override void EnterState(EnemyController enemy)
     {
-      // Logic for entering the return state
-      Debug.Log("Entering Return State");
+      // Logic for entering the return state, e.g., setting a destination
+      enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
     }
 
     public override void UpdateState(EnemyController enemy)
