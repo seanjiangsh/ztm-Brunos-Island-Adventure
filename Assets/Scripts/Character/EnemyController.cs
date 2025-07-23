@@ -42,6 +42,12 @@ namespace RPG.Character
       currentState.UpdateState(this);
     }
 
+    public void SwitchState(AIBaseState newState)
+    {
+      currentState = newState;
+      currentState.EnterState(this);
+    }
+
     private void CalculateDistanceFromPlayer()
     {
       if (player == null) return;

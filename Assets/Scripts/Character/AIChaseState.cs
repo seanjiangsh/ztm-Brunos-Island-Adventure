@@ -12,6 +12,12 @@ namespace RPG.Character
 
     public override void UpdateState(EnemyController enemy)
     {
+      if (enemy.distanceFromPlayer > enemy.chaseRange)
+      {
+        enemy.SwitchState(enemy.returnState);
+        return;
+      }
+
       // Logic for updating the chase state, e.g., moving towards the player
       if (enemy.player != null)
       {
