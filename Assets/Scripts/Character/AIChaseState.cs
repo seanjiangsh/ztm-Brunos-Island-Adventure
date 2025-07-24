@@ -12,7 +12,12 @@ namespace RPG.Character
 
     public override void UpdateState(EnemyController enemy)
     {
-      if (enemy.distanceFromPlayer > enemy.chaseRange)
+      if (enemy.distanceFromPlayer < enemy.attackRange)
+      {
+        enemy.SwitchState(enemy.attackState);
+        return;
+      }
+      else if (enemy.distanceFromPlayer > enemy.chaseRange)
       {
         enemy.SwitchState(enemy.returnState);
         return;

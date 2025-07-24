@@ -20,6 +20,7 @@ namespace RPG.Character
     private AIBaseState currentState;
     public AIReturnState returnState = new AIReturnState();
     public AIChaseState chaseState = new AIChaseState();
+    public AIAttackState attackState = new AIAttackState();
 
     private void Awake()
     {
@@ -58,12 +59,12 @@ namespace RPG.Character
 
       if (distanceFromPlayer <= chaseRange && distanceFromPlayer > attackRange)
       {
-        print($"Enemy is within chase range: {distanceFromPlayer}");
+        // print($"Enemy is within chase range: {distanceFromPlayer}");
         // ChasePlayer();
       }
       else if (distanceFromPlayer <= attackRange)
       {
-        print($"Enemy is within attack range: {distanceFromPlayer}");
+        // print($"Enemy is within attack range: {distanceFromPlayer}");
         // AttackPlayer();
       }
     }
