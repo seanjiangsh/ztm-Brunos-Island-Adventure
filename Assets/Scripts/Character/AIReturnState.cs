@@ -1,13 +1,25 @@
 using UnityEngine;
 
+
 namespace RPG.Character
 {
   public class AIReturnState : AIBaseState
   {
+    Vector3 targetPosition;
+
     public override void EnterState(EnemyController enemy)
     {
-      // Logic for entering the return state, e.g., setting a destination
-      enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
+
+      if (enemy.patrolCmp != null)
+      {
+        targetPosition = enemy.patrolCmp.GetNextPosition();
+        enemy.movementCmp.MoveAgentByDestination(targetPosition);
+      }
+      else
+      {
+        // Logic for entering the return state, e.g., setting a destination
+        enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
+      }
     }
 
     public override void UpdateState(EnemyController enemy)
