@@ -10,6 +10,11 @@ namespace RPG.Character
 
     private void Awake()
     {
+      if (splineGameObject == null)
+      {
+        Debug.LogWarning($"{name}: does not have a spline.");
+        return;
+      }
       splineCmp = splineGameObject.GetComponent<SplineContainer>();
     }
 
