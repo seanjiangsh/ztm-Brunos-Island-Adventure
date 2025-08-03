@@ -29,6 +29,12 @@ namespace RPG.Character
         enemy.SwitchState(enemy.chaseState);
         return;
       }
+
+      if (enemy.patrolCmp != null && enemy.movementCmp.ReachedDestination())
+      {
+        enemy.SwitchState(enemy.patrolState);
+        return;
+      }
     }
 
     public override void ExitState(EnemyController enemy)

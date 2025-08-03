@@ -71,6 +71,15 @@ namespace RPG.Character
       agent.isStopped = true;
       agent.ResetPath();
     }
+
+    public bool ReachedDestination()
+    {
+      if (agent.pathPending) return false;
+      if (agent.remainingDistance > agent.stoppingDistance) return false;
+      if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f) return false;
+
+      return true;
+    }
   }
 }
 
