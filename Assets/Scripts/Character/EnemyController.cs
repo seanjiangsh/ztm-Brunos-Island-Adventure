@@ -22,6 +22,7 @@ namespace RPG.Character
     public AIReturnState returnState = new AIReturnState();
     public AIChaseState chaseState = new AIChaseState();
     public AIAttackState attackState = new AIAttackState();
+    public AIPatrolState patrolState = new AIPatrolState();
 
     private void Awake()
     {
