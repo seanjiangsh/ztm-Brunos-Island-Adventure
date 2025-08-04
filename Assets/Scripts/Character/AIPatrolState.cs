@@ -16,6 +16,8 @@ namespace RPG.Character
         enemy.SwitchState(enemy.chaseState);
         return;
       }
+
+      enemy.patrolCmp.CalculateNextPosition();
     }
 
     public override void ExitState(EnemyController enemy)

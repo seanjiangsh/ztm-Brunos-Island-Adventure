@@ -30,7 +30,8 @@ namespace RPG.Character
         return;
       }
 
-      if (enemy.patrolCmp != null && enemy.movementCmp.ReachedDestination())
+      bool isAtDestination = enemy.movementCmp.ReachedDestination();
+      if (enemy.patrolCmp != null && isAtDestination)
       {
         enemy.SwitchState(enemy.patrolState);
         return;
