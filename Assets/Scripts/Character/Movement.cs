@@ -66,6 +66,12 @@ namespace RPG.Character
       agent.SetDestination(destination);
     }
 
+
+    public void MoveAgentByOffset(Vector3 offset)
+    {
+      agent.Move(offset);
+    }
+
     public void StopMovingAgent()
     {
       agent.isStopped = true;

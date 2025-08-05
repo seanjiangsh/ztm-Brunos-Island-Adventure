@@ -18,6 +18,12 @@ namespace RPG.Character
       }
 
       enemy.patrolCmp.CalculateNextPosition();
+
+      Vector3 currentPosition = enemy.transform.position;
+      Vector3 nextPosition = enemy.patrolCmp.GetNextPosition();
+      Vector3 offset = nextPosition - currentPosition;
+
+      enemy.movementCmp.MoveAgentByOffset(offset);
     }
 
     public override void ExitState(EnemyController enemy)
