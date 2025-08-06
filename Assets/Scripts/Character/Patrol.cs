@@ -9,6 +9,7 @@ namespace RPG.Character
     [SerializeField] private GameObject splineGameObject;
     private SplineContainer splineCmp;
     private float splinePosition = 0f;
+    private float splineLength = 0f;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ namespace RPG.Character
         return;
       }
       splineCmp = splineGameObject.GetComponent<SplineContainer>();
+      splineLength = splineCmp.CalculateLength();
+      // print($"{name} Spline Length: {splineLength}");
     }
 
     public Vector3 GetNextPosition()
@@ -34,8 +37,6 @@ namespace RPG.Character
       {
         splinePosition = 0f; // Loop back to the start
       }
-
-      print($"Current Spline Position: {splinePosition}");
     }
   }
 }
