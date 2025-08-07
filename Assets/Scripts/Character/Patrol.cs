@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.AI;
 
 namespace RPG.Character
 {
@@ -8,8 +9,11 @@ namespace RPG.Character
   {
     [SerializeField] private GameObject splineGameObject;
     private SplineContainer splineCmp;
+    private NavMeshAgent agentCmp;
+
     private float splinePosition = 0f;
     private float splineLength = 0f;
+    private float lengthWalked = 0f;
 
     private void Awake()
     {
@@ -20,6 +24,7 @@ namespace RPG.Character
       }
       splineCmp = splineGameObject.GetComponent<SplineContainer>();
       splineLength = splineCmp.CalculateLength();
+      agentCmp = GetComponent<NavMeshAgent>();
       // print($"{name} Spline Length: {splineLength}");
     }
 
@@ -31,12 +36,14 @@ namespace RPG.Character
 
     public void CalculateNextPosition()
     {
-      splinePosition += Time.deltaTime;
+      lengthWalked += Time.deltaTime * agentCmp.speed;
 
-      if (splinePosition > 1f)
+      if (lengthWalked >= splineLength)
       {
-        splinePosition = 0f; // Loop back to the start
+        lengthWalked = 0f; // Reset if we reach the end of the spline
       }
+
+      splinePosition = Mathf.Clamp01(lengthWalked / splineLength);
     }
   }
 }
