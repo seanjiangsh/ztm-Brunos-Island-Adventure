@@ -8,12 +8,18 @@ namespace RPG.Character
   public class Patrol : MonoBehaviour
   {
     [SerializeField] private GameObject splineGameObject;
+    [SerializeField] private float walkDuration = 3f;
+    [SerializeField] private float pauseDuration = 2f;
+
     private SplineContainer splineCmp;
     private NavMeshAgent agentCmp;
 
     private float splinePosition = 0f;
     private float splineLength = 0f;
     private float lengthWalked = 0f;
+    private float walkTime = 0f;
+    private float pauseTime = 0f;
+    private bool isWalking = true;
 
     private void Awake()
     {
