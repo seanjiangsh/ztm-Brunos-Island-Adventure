@@ -42,8 +42,25 @@ namespace RPG.Character
 
     public void CalculateNextPosition()
     {
-      lengthWalked += Time.deltaTime * agentCmp.speed;
+      walkTime += Time.deltaTime;
+      if (walkTime >= walkDuration)
+      {
+        isWalking = false;
+      }
 
+      if (!isWalking)
+      {
+        pauseTime += Time.deltaTime;
+        if (pauseTime >= pauseDuration)
+        {
+          isWalking = true;
+          pauseTime = 0f;
+          walkTime = 0f;
+        }
+        return; // Skip position update during pause
+      }
+
+      lengthWalked += Time.deltaTime * agentCmp.speed;
       if (lengthWalked >= splineLength)
       {
         lengthWalked = 0f; // Reset if we reach the end of the spline
