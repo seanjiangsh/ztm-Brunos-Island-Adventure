@@ -51,13 +51,11 @@ namespace RPG.Character
       if (!isWalking)
       {
         pauseTime += Time.deltaTime;
-        if (pauseTime >= pauseDuration)
+        if (pauseTime < pauseDuration)
         {
-          isWalking = true;
-          pauseTime = 0f;
-          walkTime = 0f;
+          return;
         }
-        return; // Skip position update during pause
+        ResetTimers();
       }
 
       lengthWalked += Time.deltaTime * agentCmp.speed;
@@ -67,6 +65,13 @@ namespace RPG.Character
       }
 
       splinePosition = Mathf.Clamp01(lengthWalked / splineLength);
+    }
+
+    public void ResetTimers()
+    {
+      isWalking = true;
+      pauseTime = 0f;
+      walkTime = 0f;
     }
   }
 }

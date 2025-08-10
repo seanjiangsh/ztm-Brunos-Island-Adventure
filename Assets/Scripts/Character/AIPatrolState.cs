@@ -6,7 +6,7 @@ namespace RPG.Character
   {
     public override void EnterState(EnemyController enemy)
     {
-      Debug.Log("Entering Patrol State");
+      // enemy.patrolCmp.ResetTimers();
     }
 
     public override void UpdateState(EnemyController enemy)
