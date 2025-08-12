@@ -4,7 +4,7 @@ namespace RPG.Character
 {
   [CreateAssetMenu(
     fileName = "Character Stats",
-    menuName = "Character Stats SO",
+    menuName = "RPG/Character Stats SO",
     order = 0
   )]
 
@@ -13,7 +13,7 @@ namespace RPG.Character
     public float health = 100f;
     public float damage = 10f;
     public float walkSpeed = 1f;
-    public float runSpeed = 1.5f;
+    public float runSpeed = 1.25f;
 
     // Add other character stats as needed
   }
