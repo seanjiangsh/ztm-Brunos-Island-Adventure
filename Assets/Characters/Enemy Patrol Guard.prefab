@@ -116,6 +116,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2388339120355624184, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: a146ea93652111c4fb8c4873d50d797f, type: 2}
     - target: {fileID: 2698154852706085569, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
       propertyPath: m_Height
       value: 0.5
@@ -196,6 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a4c3401005ca54a8194b63155b47ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splineGameObject: {fileID: 0}
+  walkDuration: 3
+  pauseDuration: 2
 --- !u!4 &8182533146190131220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8192645824306234874, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}

@@ -116,6 +116,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2388339120355624184, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: a146ea93652111c4fb8c4873d50d797f, type: 2}
     - target: {fileID: 4381550723375176249, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
       propertyPath: m_Name
       value: Enemy Stationary Guard

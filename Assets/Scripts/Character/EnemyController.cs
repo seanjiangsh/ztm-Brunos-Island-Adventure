@@ -14,6 +14,8 @@ namespace RPG.Character
 
     [NonSerialized] public Patrol patrolCmp;
 
+    public CharacterStatsSO stats;
+
     public float chaseRange = 2.5f;
     public float attackRange = 0.75f;
 
@@ -26,6 +28,12 @@ namespace RPG.Character
 
     private void Awake()
     {
+      if (stats == null)
+      {
+        Debug.LogError($"CharacterStatsSO is not assigned in EnemyController {name}.");
+        return;
+      }
+
       currentState = returnState;
 
       player = GameObject.FindWithTag(Constants.PLAYER_TAG);
