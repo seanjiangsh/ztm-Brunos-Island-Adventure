@@ -11,8 +11,10 @@ namespace RPG.Character
     [NonSerialized] public float distanceFromPlayer;
     [NonSerialized] public Vector3 originalPosition;
     [NonSerialized] public Movement movementCmp;
-
     [NonSerialized] public Patrol patrolCmp;
+
+    private Health healthCmp;
+    private Combat combatCmp;
 
     public CharacterStatsSO stats;
 
@@ -39,6 +41,8 @@ namespace RPG.Character
       player = GameObject.FindWithTag(Constants.PLAYER_TAG);
       movementCmp = GetComponent<Movement>();
       patrolCmp = GetComponent<Patrol>();
+      healthCmp = GetComponent<Health>();
+      combatCmp = GetComponent<Combat>();
 
       originalPosition = transform.position;
     }
@@ -46,6 +50,9 @@ namespace RPG.Character
     private void Start()
     {
       currentState.EnterState(this);
+
+      healthCmp.healthPoints = stats.health;
+      combatCmp.damage = stats.damage;
     }
 
     private void Update()
