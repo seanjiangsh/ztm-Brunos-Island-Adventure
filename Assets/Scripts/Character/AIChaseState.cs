@@ -7,6 +7,7 @@ namespace RPG.Character
     public override void EnterState(EnemyController enemy)
     {
       // Logic for entering the chase state, e.g., setting a destination
+      enemy.movementCmp.UpdateAgentSpeed(enemy.stats.runSpeed);
       enemy.movementCmp.MoveAgentByDestination(enemy.player.transform.position);
     }
 

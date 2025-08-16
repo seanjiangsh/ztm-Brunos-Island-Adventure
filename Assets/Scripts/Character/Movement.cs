@@ -86,6 +86,10 @@ namespace RPG.Character
 
       return true;
     }
+
+    public void UpdateAgentSpeed(float newSpeed)
+    {
+      agent.speed = newSpeed;
+    }
   }
 }
-
