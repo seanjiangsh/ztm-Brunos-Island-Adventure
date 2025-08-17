@@ -13,23 +13,36 @@ namespace RPG.Character
 
     public override void UpdateState(EnemyController enemy)
     {
-      if (enemy.distanceFromPlayer < enemy.attackRange)
+      float dist = enemy.distanceFromPlayer;
+      float attackRange = enemy.attackRange;
+      float chaseRange = enemy.chaseRange;
+      GameObject player = enemy.player;
+      Movement move = enemy.movementCmp;
+
+      if (dist < attackRange)
       {
         enemy.SwitchState(enemy.attackState);
         return;
       }
-      else if (enemy.distanceFromPlayer > enemy.chaseRange)
+      else if (dist > chaseRange)
       {
         enemy.SwitchState(enemy.returnState);
         return;
       }
 
-      // Logic for updating the chase state, e.g., moving towards the player
-      if (enemy.player != null)
+      // Chase logic
+      // Pattern match: only runs if player is not null
+      if (enemy.player is { transform: var playerTransform })
       {
-        enemy.movementCmp.MoveAgentByDestination(enemy.player.transform.position);
+        Vector3 playerPos = playerTransform.position;
+        Vector3 enemyPos = enemy.transform.position;
+        Vector3 playerDirection = playerPos - enemyPos;
+
+        move.MoveAgentByDestination(playerPos);
+        move.Rotate(playerDirection);
       }
     }
+
 
     public override void ExitState(EnemyController enemy)
     {
