@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine;
 
 
 namespace RPG.Character
@@ -32,10 +33,31 @@ namespace RPG.Character
       }
 
       bool isAtDestination = enemy.movementCmp.ReachedDestination();
-      if (enemy.patrolCmp != null && isAtDestination)
+      if (isAtDestination)
       {
-        enemy.SwitchState(enemy.patrolState);
-        return;
+        if (enemy.patrolCmp != null)
+        {
+          enemy.SwitchState(enemy.patrolState);
+          return;
+        }
+      }
+      else
+      {
+        if (enemy.patrolCmp != null)
+        {
+          Vector3 currentPos = enemy.transform.position;
+          Vector3 newForwardPos = targetPosition - currentPos;
+          newForwardPos.y = 0; // Ensure we are only rotating on the horizontal plane
+          enemy.movementCmp.Rotate(newForwardPos);
+        }
+        else
+        {
+          Vector3 originalPos = enemy.originalPosition;
+          Vector3 currentPos = enemy.transform.position;
+          Vector3 newForwardPos = originalPos - currentPos;
+          newForwardPos.y = 0; // Ensure we are only rotating on the horizontal plane
+          enemy.movementCmp.Rotate(newForwardPos);
+        }
       }
     }
 
