@@ -24,6 +24,11 @@ namespace RPG.Character
       Vector3 offset = nextPosition - currentPosition;
 
       enemy.movementCmp.MoveAgentByOffset(offset);
+
+      Vector3 fartherOutPosition = enemy.patrolCmp.GetFartherOutPosition();
+      Vector3 newFacingDirection = fartherOutPosition - currentPosition;
+      newFacingDirection.y = 0; // Ensure we are only rotating on the horizontal plane
+      enemy.movementCmp.Rotate(newFacingDirection);
     }
 
     public override void ExitState(EnemyController enemy)

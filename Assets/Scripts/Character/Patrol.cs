@@ -73,5 +73,15 @@ namespace RPG.Character
       pauseTime = 0f;
       walkTime = 0f;
     }
+
+    public Vector3 GetFartherOutPosition()
+    {
+      float tmpSplinePosition = splinePosition + 0.02f;
+      if (tmpSplinePosition > 1f)
+      {
+        tmpSplinePosition = 0f; // Loop back to the start
+      }
+      return splineCmp.EvaluatePosition(tmpSplinePosition);
+    }
   }
 }
