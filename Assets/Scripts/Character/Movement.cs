@@ -10,6 +10,8 @@ namespace RPG.Character
   [RequireComponent(typeof(NavMeshAgent))]
   public class Movement : MonoBehaviour
   {
+    [NonSerialized] public Vector3 originalForwardVector;
+
     private NavMeshAgent agent;
 
     private Vector3 movementVector;
@@ -17,10 +19,7 @@ namespace RPG.Character
     private void Awake()
     {
       agent = GetComponent<NavMeshAgent>();
-      if (agent == null)
-      {
-        Debug.LogError("NavMeshAgent component is missing on this GameObject.");
-      }
+      originalForwardVector = transform.forward;
     }
 
     private void Update()

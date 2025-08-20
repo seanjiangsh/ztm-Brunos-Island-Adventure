@@ -40,6 +40,10 @@ namespace RPG.Character
           enemy.SwitchState(enemy.patrolState);
           return;
         }
+        else
+        {
+          enemy.movementCmp.Rotate(enemy.movementCmp.originalForwardVector);
+        }
       }
       else
       {
