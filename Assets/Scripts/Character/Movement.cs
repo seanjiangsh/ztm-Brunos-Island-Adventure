@@ -22,6 +22,12 @@ namespace RPG.Character
       originalForwardVector = transform.forward;
     }
 
+    private void Start()
+    {
+      // Disable agent's rotation
+      agent.updateRotation = false;
+    }
+
     private void Update()
     {
       MovePlayer();
