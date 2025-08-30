@@ -6,7 +6,7 @@ namespace RPG.Quests
   {
     private void OnTriggerEnter(Collider other)
     {
-      print("Player entered the treasure chest area!");
+      Debug.Log("Player entered the treasure chest area!");
     }
 
   }
