@@ -13,12 +13,14 @@ namespace RPG.Character
     [NonSerialized] public Vector3 originalForwardVector;
 
     private NavMeshAgent agent;
+    private Animator animatorCmp;
 
     private Vector3 movementVector;
 
     private void Awake()
     {
       agent = GetComponent<NavMeshAgent>();
+      animatorCmp = GetComponentInChildren<Animator>();
       originalForwardVector = transform.forward;
     }
 
