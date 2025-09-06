@@ -11,6 +11,7 @@ namespace RPG.Character
   public class Movement : MonoBehaviour
   {
     [NonSerialized] public Vector3 originalForwardVector;
+    [NonSerialized] public bool isMoving = false;
 
     private NavMeshAgent agent;
     private Animator animatorCmp;
@@ -40,17 +41,19 @@ namespace RPG.Character
     {
 
       Vector2 inputVector = context.ReadValue<Vector2>();
-      // Debug.Log($"Input Vector: {inputVector}");
-
       if (context.performed)
       {
+        isMoving = true;
         movementVector = new Vector3(inputVector.x, 0, inputVector.y);
       }
       else if (context.canceled)
       {
+        isMoving = false;
         movementVector = Vector3.zero;
       }
     }
+    // Debug.Log($"Input Vector: {inputVector}");
+
 
     private void MovePlayer()
     {
