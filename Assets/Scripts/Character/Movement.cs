@@ -107,14 +107,18 @@ namespace RPG.Character
     private void MovementAnimator()
     {
       float speed = animatorCmp.GetFloat("speed");
+      float smoothening = Time.deltaTime * agent.acceleration;
+
       if (isMoving)
       {
-        speed = 1;
+        speed += smoothening;
       }
       else
       {
-        speed = 0;
+        speed -= smoothening;
       }
+
+      speed = Mathf.Clamp(speed, 0, 1);
       animatorCmp.SetFloat("speed", speed);
     }
   }
