@@ -34,6 +34,7 @@ namespace RPG.Character
     private void Update()
     {
       MovePlayer();
+      MovementAnimator();
       if (CompareTag(Constants.PLAYER_TAG)) Rotate(movementVector);
     }
 
@@ -101,6 +102,20 @@ namespace RPG.Character
     public void UpdateAgentSpeed(float newSpeed)
     {
       agent.speed = newSpeed;
+    }
+
+    private void MovementAnimator()
+    {
+      float speed = animatorCmp.GetFloat("speed");
+      if (isMoving)
+      {
+        speed = 1;
+      }
+      else
+      {
+        speed = 0;
+      }
+      animatorCmp.SetFloat("speed", speed);
     }
   }
 }
