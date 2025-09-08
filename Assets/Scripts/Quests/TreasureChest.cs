@@ -1,3 +1,4 @@
+using RPG.Utility;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,7 +26,7 @@ namespace RPG.Quests
     {
       if (!isInteractable || hasBeenOpened) return;
 
-      animatorCmp.SetBool("isShaking", false);
+      animatorCmp.SetBool(Constants.ANIMATOR_IS_SHAKING_PARAM, false);
       hasBeenOpened = true;
       Debug.Log("Treasure Chest Opened!");
     }
