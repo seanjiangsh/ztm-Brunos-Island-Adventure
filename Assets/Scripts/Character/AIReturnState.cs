@@ -40,6 +40,7 @@ namespace RPG.Character
         }
         else
         {
+          enemy.movementCmp.isMoving = false;
           enemy.movementCmp.Rotate(enemy.movementCmp.originalForwardVector);
         }
       }

@@ -16,7 +16,9 @@ namespace RPG.Character
         enemy.SwitchState(enemy.chaseState);
         return;
       }
+      Vector3 oldPosition = enemy.patrolCmp.GetNextPosition();
 
+      // * Calculate the next position in the patrol route
       enemy.patrolCmp.CalculateNextPosition();
 
       Vector3 currentPosition = enemy.transform.position;
@@ -29,6 +31,12 @@ namespace RPG.Character
       Vector3 newFacingDirection = fartherOutPosition - currentPosition;
       newFacingDirection.y = 0; // Ensure we are only rotating on the horizontal plane
       enemy.movementCmp.Rotate(newFacingDirection);
+
+      // * Check if we've reached the patrol point (enemy is paused)
+      if (oldPosition == nextPosition)
+      {
+        enemy.movementCmp.isMoving = false;
+      }
     }
 
     public override void ExitState(EnemyController enemy)
