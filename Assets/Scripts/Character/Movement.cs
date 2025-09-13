@@ -17,6 +17,7 @@ namespace RPG.Character
     private Animator animatorCmp;
 
     private Vector3 movementVector;
+    private bool clampAnimatorSpeedAgain = true;
 
     private void Awake()
     {
@@ -101,9 +102,10 @@ namespace RPG.Character
       return true;
     }
 
-    public void UpdateAgentSpeed(float newSpeed)
+    public void UpdateAgentSpeed(float newSpeed, bool shouldClampSpeed)
     {
       agent.speed = newSpeed;
+      clampAnimatorSpeedAgain = shouldClampSpeed;
     }
 
     private void MovementAnimator()
@@ -120,7 +122,14 @@ namespace RPG.Character
         speed -= smoothening;
       }
 
-      speed = Mathf.Clamp(speed, 0, 1);
+      speed = Mathf.Clamp01(speed);
+
+      if (CompareTag(Constants.ENEMY_TAG) && clampAnimatorSpeedAgain)
+      {
+        speed = Mathf.Clamp(speed, 0f, 0.5f);
+        clampAnimatorSpeedAgain = false;
+      }
+
       animatorCmp.SetFloat(Constants.ANIMATOR_SPEED_PARAM, speed);
     }
   }
