@@ -5,6 +5,7 @@ namespace RPG.Utility
     public const string PLAYER_TAG = "Player";
     public const string ENEMY_TAG = "Enemy";
     public const string ANIMATOR_SPEED_PARAM = "speed";
+    public const string ANIMATOR_IS_ATTACKING_PARAM = "isAttacking";
     public const string ANIMATOR_IS_SHAKING_PARAM = "isShaking";
   }
 }
