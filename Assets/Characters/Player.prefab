@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4539969353819704057}
   - component: {fileID: 7629408682872705155}
+  - component: {fileID: 6848123016988035882}
   m_Layer: 0
   m_Name: KayKit Animated Character_v1.2
   m_TagString: Untagged
@@ -241,6 +242,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6848123016988035882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768077743227736131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fc70cc6a690f046968ed29c2c20054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4954058326086302476
 GameObject:
   m_ObjectHideFlags: 0
