@@ -8,6 +8,7 @@ namespace RPG.Character
   public class Combat : MonoBehaviour
   {
     [NonSerialized] public float damage = 0f;
+    [NonSerialized] public bool isAttacking = false;
 
     private Animator animatorCmp;
     private BubbleEvent bubbleEventCmp;
@@ -33,18 +34,20 @@ namespace RPG.Character
 
     public void StartAttack()
     {
+      if (isAttacking) return;
+
       animatorCmp.SetFloat(Constants.ANIMATOR_SPEED_PARAM, 0);
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_ATTACKING_PARAM);
     }
 
     private void HandleBubbleStartAttack()
     {
-      Debug.Log("Start Attack");
+      isAttacking = true;
     }
 
     private void HandleBubbleCompleteAttack()
     {
-      Debug.Log("Complete Attack");
+      isAttacking = false;
     }
   }
 }
