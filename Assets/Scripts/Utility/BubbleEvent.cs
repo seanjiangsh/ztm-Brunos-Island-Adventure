@@ -5,8 +5,8 @@ namespace RPG.Utility
 {
   public class BubbleEvent : MonoBehaviour
   {
-    public UnityAction OnBubbleStartAttack = () => { };
-    public UnityAction OnBubbleCompleteAttack = () => { };
+    public event UnityAction OnBubbleStartAttack = () => { };
+    public event UnityAction OnBubbleCompleteAttack = () => { };
 
     private void OnStartAttack()
     {
