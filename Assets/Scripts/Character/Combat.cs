@@ -25,6 +25,12 @@ namespace RPG.Character
       bubbleEventCmp.OnBubbleCompleteAttack += HandleBubbleCompleteAttack;
     }
 
+    private void OnDisable()
+    {
+      bubbleEventCmp.OnBubbleStartAttack -= HandleBubbleStartAttack;
+      bubbleEventCmp.OnBubbleCompleteAttack -= HandleBubbleCompleteAttack;
+    }
+
     public void HandleAttack(InputAction.CallbackContext context)
     {
       if (!context.performed) return;
