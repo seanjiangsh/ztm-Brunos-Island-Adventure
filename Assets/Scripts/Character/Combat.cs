@@ -23,12 +23,14 @@ namespace RPG.Character
     {
       bubbleEventCmp.OnBubbleStartAttack += HandleBubbleStartAttack;
       bubbleEventCmp.OnBubbleCompleteAttack += HandleBubbleCompleteAttack;
+      bubbleEventCmp.OnBubbleHit += HandleHit;
     }
 
     private void OnDisable()
     {
       bubbleEventCmp.OnBubbleStartAttack -= HandleBubbleStartAttack;
       bubbleEventCmp.OnBubbleCompleteAttack -= HandleBubbleCompleteAttack;
+      bubbleEventCmp.OnBubbleHit -= HandleHit;
     }
 
     public void HandleAttack(InputAction.CallbackContext context)
@@ -54,6 +56,11 @@ namespace RPG.Character
     private void HandleBubbleCompleteAttack()
     {
       isAttacking = false;
+    }
+
+    private void HandleHit()
+    {
+      Debug.Log("Hit event triggered");
     }
   }
 }
