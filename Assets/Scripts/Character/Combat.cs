@@ -23,14 +23,14 @@ namespace RPG.Character
     {
       bubbleEventCmp.OnBubbleStartAttack += HandleBubbleStartAttack;
       bubbleEventCmp.OnBubbleCompleteAttack += HandleBubbleCompleteAttack;
-      bubbleEventCmp.OnBubbleHit += HandleHit;
+      bubbleEventCmp.OnBubbleHit += HandleBubbleHit;
     }
 
     private void OnDisable()
     {
       bubbleEventCmp.OnBubbleStartAttack -= HandleBubbleStartAttack;
       bubbleEventCmp.OnBubbleCompleteAttack -= HandleBubbleCompleteAttack;
-      bubbleEventCmp.OnBubbleHit -= HandleHit;
+      bubbleEventCmp.OnBubbleHit -= HandleBubbleHit;
     }
 
     public void HandleAttack(InputAction.CallbackContext context)
@@ -58,9 +58,15 @@ namespace RPG.Character
       isAttacking = false;
     }
 
-    private void HandleHit()
+    private void HandleBubbleHit()
     {
-      Debug.Log("Hit event triggered");
+      RaycastHit[] targets = Physics.BoxCastAll(
+        transform.position + transform.forward,
+        transform.localScale / 2,
+        transform.forward,
+        transform.rotation,
+        1f
+      );
     }
   }
 }
