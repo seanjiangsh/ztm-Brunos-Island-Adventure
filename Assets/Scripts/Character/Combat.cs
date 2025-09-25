@@ -67,6 +67,11 @@ namespace RPG.Character
         transform.rotation,
         1f
       );
+
+      foreach (RaycastHit target in targets)
+      {
+        Debug.Log($"Hit: {target.transform.name}");
+      }
     }
   }
 }
