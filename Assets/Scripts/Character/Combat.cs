@@ -70,7 +70,13 @@ namespace RPG.Character
 
       foreach (RaycastHit target in targets)
       {
-        Debug.Log($"Hit: {target.transform.name}");
+        Transform targetTransform = target.transform;
+        if (CompareTag(targetTransform.tag)) continue;
+
+        Health targetHealth = targetTransform.gameObject.GetComponent<Health>();
+        if (targetHealth == null) continue;
+
+        Debug.Log($"Hit: {targetTransform.name}");
       }
     }
   }
