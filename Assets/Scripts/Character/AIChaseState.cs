@@ -32,7 +32,7 @@ namespace RPG.Character
 
       // Chase logic
       // Pattern match: only runs if player is not null
-      if (enemy.player is { transform: var playerTransform })
+      if (player is { transform: var playerTransform })
       {
         Vector3 playerPos = playerTransform.position;
         Vector3 enemyPos = enemy.transform.position;
