@@ -76,7 +76,7 @@ namespace RPG.Character
         Health targetHealth = targetTransform.gameObject.GetComponent<Health>();
         if (targetHealth == null) continue;
 
-        Debug.Log($"Hit: {targetTransform.name}");
+        targetHealth.TakeDamage(damage);
       }
     }
   }
