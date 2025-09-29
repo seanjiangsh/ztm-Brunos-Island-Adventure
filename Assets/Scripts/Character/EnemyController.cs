@@ -12,21 +12,20 @@ namespace RPG.Character
     [NonSerialized] public Vector3 originalPosition;
     [NonSerialized] public Movement movementCmp;
     [NonSerialized] public Patrol patrolCmp;
+    [NonSerialized] public Combat combatCmp;
 
     private Health healthCmp;
-    private Combat combatCmp;
-
     public CharacterStatsSO stats;
 
     public float chaseRange = 2.5f;
-    public float attackRange = 0.75f;
+    public float attackRange = 1.25f;
 
 
     private AIBaseState currentState;
-    public AIReturnState returnState = new AIReturnState();
-    public AIChaseState chaseState = new AIChaseState();
-    public AIAttackState attackState = new AIAttackState();
-    public AIPatrolState patrolState = new AIPatrolState();
+    public AIReturnState returnState = new();
+    public AIChaseState chaseState = new();
+    public AIAttackState attackState = new();
+    public AIPatrolState patrolState = new();
 
     private void Awake()
     {
@@ -74,7 +73,7 @@ namespace RPG.Character
       Vector3 enemyPosition = transform.position;
       Vector3 playerPosition = player.transform.position;
       distanceFromPlayer = Vector3.Distance(enemyPosition, playerPosition);
-
+      Debug.Log($"Distance from player: {distanceFromPlayer}");
       if (distanceFromPlayer <= chaseRange && distanceFromPlayer > attackRange)
       {
         // print($"Enemy is within chase range: {distanceFromPlayer}");

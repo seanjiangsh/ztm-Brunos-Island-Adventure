@@ -17,12 +17,7 @@ namespace RPG.Character
         return;
       }
 
-      // Logic for updating the attack state, e.g., performing an attack
-      if (enemy.player != null)
-      {
-        // Here you would typically call an attack method on the player or trigger an attack animation
-        Debug.Log("Attacking player at range: " + enemy.distanceFromPlayer);
-      }
+      enemy.combatCmp.StartAttack();
     }
 
     public override void ExitState(EnemyController enemy)
