@@ -18,6 +18,7 @@ namespace RPG.Character
       }
 
       enemy.combatCmp.StartAttack();
+      enemy.transform.LookAt(enemy.player.transform);
     }
 
     public override void ExitState(EnemyController enemy)
