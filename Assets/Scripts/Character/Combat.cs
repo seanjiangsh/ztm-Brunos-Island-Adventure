@@ -79,5 +79,13 @@ namespace RPG.Character
         targetHealth.TakeDamage(damage);
       }
     }
+
+    public void CancelAttack()
+    {
+      if (!isAttacking) return;
+
+      animatorCmp.ResetTrigger(Constants.ANIMATOR_IS_ATTACKING_PARAM);
+      isAttacking = false;
+    }
   }
 }

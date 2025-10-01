@@ -13,6 +13,7 @@ namespace RPG.Character
     {
       if (enemy.distanceFromPlayer > enemy.attackRange)
       {
+        enemy.combatCmp.CancelAttack();
         enemy.SwitchState(enemy.chaseState);
         return;
       }
