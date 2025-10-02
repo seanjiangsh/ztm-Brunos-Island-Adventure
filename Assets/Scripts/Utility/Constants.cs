@@ -7,5 +7,6 @@ namespace RPG.Utility
     public const string ANIMATOR_SPEED_PARAM = "speed";
     public const string ANIMATOR_IS_ATTACKING_PARAM = "isAttacking";
     public const string ANIMATOR_IS_SHAKING_PARAM = "isShaking";
+    public const string ANIMATOR_IS_DEFEATED_PARAM = "isDefeated";
   }
 }
