@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using RPG.Utility;
 
 namespace RPG.Character
 {
@@ -7,14 +8,26 @@ namespace RPG.Character
   {
     [NonSerialized] public float healthPoints = 0f;
 
+    private Animator animatorCmp;
+
+    private void Awake()
+    {
+      animatorCmp = GetComponentInChildren<Animator>();
+    }
+
     public void TakeDamage(float damage)
     {
       healthPoints = Mathf.Max(healthPoints - damage, 0);
-      Debug.Log($"{gameObject.name} took {damage} damage. Remaining HP: {healthPoints}");
+
       if (healthPoints <= 0)
       {
-        Debug.Log($"{gameObject.name} has died.");
+        Defeated();
       }
+    }
+
+    private void Defeated()
+    {
+      animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
     }
   }
 }
