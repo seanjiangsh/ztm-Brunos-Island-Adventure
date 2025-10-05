@@ -8,6 +8,8 @@ namespace RPG.Character
   {
     [NonSerialized] public float healthPoints = 0f;
 
+    private bool isDefeated = false;
+
     private Animator animatorCmp;
 
     private void Awake()
@@ -19,7 +21,7 @@ namespace RPG.Character
     {
       healthPoints = Mathf.Max(healthPoints - damage, 0);
 
-      if (healthPoints <= 0)
+      if (healthPoints <= 0 && !isDefeated)
       {
         Defeated();
       }
@@ -27,7 +29,10 @@ namespace RPG.Character
 
     private void Defeated()
     {
+      if (isDefeated) return;
+
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
+      isDefeated = true;
     }
   }
 }
