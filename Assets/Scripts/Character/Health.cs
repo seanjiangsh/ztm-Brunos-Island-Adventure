@@ -11,10 +11,22 @@ namespace RPG.Character
     private bool isDefeated = false;
 
     private Animator animatorCmp;
+    private BubbleEvent bubbleEventCmp;
 
     private void Awake()
     {
       animatorCmp = GetComponentInChildren<Animator>();
+      bubbleEventCmp = GetComponentInChildren<BubbleEvent>();
+    }
+
+    private void OnEnable()
+    {
+      bubbleEventCmp.OnBubbleCompleteDefeat += HandleBubbleCompleteDefeat;
+    }
+
+    private void OnDisable()
+    {
+      bubbleEventCmp.OnBubbleCompleteDefeat -= HandleBubbleCompleteDefeat;
     }
 
     public void TakeDamage(float damage)
@@ -33,6 +45,11 @@ namespace RPG.Character
 
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
       isDefeated = true;
+    }
+
+    private void HandleBubbleCompleteDefeat()
+    {
+      Destroy(gameObject);
     }
   }
 }

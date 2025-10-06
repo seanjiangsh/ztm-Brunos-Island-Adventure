@@ -73,17 +73,6 @@ namespace RPG.Character
       Vector3 enemyPosition = transform.position;
       Vector3 playerPosition = player.transform.position;
       distanceFromPlayer = Vector3.Distance(enemyPosition, playerPosition);
-      Debug.Log($"Distance from player: {distanceFromPlayer}");
-      if (distanceFromPlayer <= chaseRange && distanceFromPlayer > attackRange)
-      {
-        // print($"Enemy is within chase range: {distanceFromPlayer}");
-        // ChasePlayer();
-      }
-      else if (distanceFromPlayer <= attackRange)
-      {
-        // print($"Enemy is within attack range: {distanceFromPlayer}");
-        // AttackPlayer();
-      }
     }
 
     private void OnDrawGizmosSelected()
