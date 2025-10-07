@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 using RPG.Utility;
 
@@ -7,6 +8,7 @@ namespace RPG.Character
   public class Health : MonoBehaviour
   {
     [NonSerialized] public float healthPoints = 0f;
+    public event UnityAction OnStartDefeated = () => { };
 
     private bool isDefeated = false;
 
@@ -42,6 +44,11 @@ namespace RPG.Character
     private void Defeated()
     {
       if (isDefeated) return;
+
+      if (CompareTag(Constants.ENEMY_TAG))
+      {
+        OnStartDefeated.Invoke();
+      }
 
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
       isDefeated = true;

@@ -42,13 +42,5 @@ namespace RPG.Character
         move.Rotate(playerDirection);
       }
     }
-
-
-    public override void ExitState(EnemyController enemy)
-    {
-      // Logic for exiting the chase state, e.g., resetting variables
-    }
-
   }
-
 }

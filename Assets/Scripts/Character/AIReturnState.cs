@@ -63,10 +63,5 @@ namespace RPG.Character
         }
       }
     }
-
-    public override void ExitState(EnemyController enemy)
-    {
-      // 
-    }
   }
 }

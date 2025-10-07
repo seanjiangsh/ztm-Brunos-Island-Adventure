@@ -38,10 +38,5 @@ namespace RPG.Character
         enemy.movementCmp.isMoving = false;
       }
     }
-
-    public override void ExitState(EnemyController enemy)
-    {
-      // Logic for exiting the patrol state, e.g., resetting variables
-    }
   }
 }

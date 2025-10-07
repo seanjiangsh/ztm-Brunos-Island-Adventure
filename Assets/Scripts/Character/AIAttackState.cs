@@ -27,12 +27,5 @@ namespace RPG.Character
       enemy.combatCmp.StartAttack();
       enemy.transform.LookAt(enemy.player.transform);
     }
-
-    public override void ExitState(EnemyController enemy)
-    {
-      // Logic for exiting the chase state, e.g., resetting variables
-    }
-
   }
-
 }
