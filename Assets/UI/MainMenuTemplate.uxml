@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Global%20Stylesheet.uss?fileID=7433441132597879392&amp;guid=726531e8596f4a14f93f5bdb695f77f0&amp;type=3#Global Stylesheet" />
-    <engine:VisualElement class="primary-container">
-        <engine:Label text="Bruno&apos;s Island Adventure" />
+    <engine:VisualElement class="primary-container main-text">
+        <engine:Label text="Bruno&apos;s Island Adventure" class="base-text" />
     </engine:VisualElement>
 </engine:UXML>
