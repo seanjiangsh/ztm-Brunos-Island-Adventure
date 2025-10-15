@@ -32,3 +32,10 @@
 .base-text {
     -unity-font-definition: url("project://database/Assets/Game%20Assets/Fonts/OdibeeSans-Regular.ttf?fileID=12800000&guid=94c91e133c0f88c438ef55128a1cd703&type=3#OdibeeSans-Regular");
 }
+
+.center {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
