@@ -1,8 +1,11 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Global%20Stylesheet.uss?fileID=7433441132597879392&amp;guid=726531e8596f4a14f93f5bdb695f77f0&amp;type=3#Global Stylesheet" />
-    <engine:VisualElement class="center" style="flex-grow: 1;">
-        <engine:VisualElement class="primary-container main-text">
+    <engine:VisualElement name="main-menu-container" class="center" style="flex-grow: 1;">
+        <engine:VisualElement name="box" class="primary-container main-text" style="position: relative;">
             <engine:Label text="Bruno&apos;s Island Adventure" class="base-text" />
+            <engine:VisualElement name="buttons" style="flex-grow: 1; position: absolute; left: 0; bottom: -50px; width: 100%; flex-direction: row; justify-content: center;">
+                <engine:Button text="Start" name="start-button" class="menu-button" style="width: 325px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; -unity-font-definition: url(&quot;project://database/Assets/Game%20Assets/Fonts/OdibeeSans-Regular.ttf?fileID=12800000&amp;guid=94c91e133c0f88c438ef55128a1cd703&amp;type=3#OdibeeSans-Regular&quot;); -unity-font-style: normal; font-size: 32px; background-color: rgb(41, 153, 201); -unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;" />
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
