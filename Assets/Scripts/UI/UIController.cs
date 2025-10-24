@@ -7,7 +7,7 @@ namespace RPG.UI
   public class UIController : MonoBehaviour
   {
     private UIDocument uiDocumentCmp;
-    private VisualElement rootElement;
+    public VisualElement rootElement;
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;

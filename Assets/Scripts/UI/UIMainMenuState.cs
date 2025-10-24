@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace RPG.UI
 {
@@ -11,7 +12,9 @@ namespace RPG.UI
 
     public override void EnterState()
     {
-
+      uiController.menuButtons = uiController.rootElement
+        .Query<Button>(null, "menu-button")
+        .ToList();
     }
 
     public override void SelectButton()
