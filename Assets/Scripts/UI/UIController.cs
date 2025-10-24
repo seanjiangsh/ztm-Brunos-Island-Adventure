@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,7 @@ namespace RPG.UI
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;
+    public List<Button> menuButtons = new();
 
     private void Awake()
     {
