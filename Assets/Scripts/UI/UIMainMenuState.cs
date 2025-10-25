@@ -19,7 +19,7 @@ namespace RPG.UI
 
     public override void SelectButton()
     {
-
+      Debug.Log("Main Menu Button Selected: " + uiController.menuButtons[0].text);
     }
   }
 }

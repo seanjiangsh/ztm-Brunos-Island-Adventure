@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 namespace RPG.UI
 {
@@ -25,6 +26,13 @@ namespace RPG.UI
     {
       currentState = mainMenuState;
       currentState.EnterState();
+    }
+
+    public void HandleInteract(InputAction.CallbackContext context)
+    {
+      if (!context.performed) return;
+
+      currentState.SelectButton();
     }
   }
 }
