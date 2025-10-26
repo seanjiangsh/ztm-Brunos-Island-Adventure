@@ -19,7 +19,9 @@ namespace RPG.UI
 
     public override void SelectButton()
     {
-      Debug.Log("Main Menu Button Selected: " + uiController.menuButtons[0].text);
+      int selectedBtnIndex = uiController.selectedButtonIndex;
+      Button button = uiController.menuButtons[selectedBtnIndex];
+      Debug.Log($"Selected button: {button.text}");
     }
   }
 }
