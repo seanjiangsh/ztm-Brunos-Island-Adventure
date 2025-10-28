@@ -41,4 +41,12 @@
 }
 
 .menu-button {
+    background-color: rgb(41, 153, 201);
+    -unity-font-definition: url("project://database/Assets/Game%20Assets/Fonts/OdibeeSans-Regular.ttf?fileID=12800000&guid=94c91e133c0f88c438ef55128a1cd703&type=3#OdibeeSans-Regular");
+    font-size: 32px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 325px;
 }

@@ -35,5 +35,13 @@ namespace RPG.UI
 
       currentState.SelectButton();
     }
+
+    public void HandleNavigate(InputAction.CallbackContext context)
+    {
+      if (!context.performed || menuButtons.Count == 0) return;
+
+      Vector2 navigationInput = context.ReadValue<Vector2>();
+      Debug.Log($"Navigation input: {navigationInput}");
+    }
   }
 }
