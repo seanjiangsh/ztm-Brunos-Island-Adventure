@@ -15,6 +15,8 @@ namespace RPG.UI
       uiController.menuButtons = uiController.rootElement
         .Query<Button>(null, "menu-button")
         .ToList();
+
+      uiController.menuButtons[0].AddToClassList("active");
     }
 
     public override void SelectButton()

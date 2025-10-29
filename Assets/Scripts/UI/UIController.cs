@@ -40,11 +40,13 @@ namespace RPG.UI
     {
       if (!context.performed || menuButtons.Count == 0) return;
 
+      menuButtons[selectedButtonIndex].RemoveFromClassList("active");
+
+
       Vector2 navigationInput = context.ReadValue<Vector2>();
       selectedButtonIndex += navigationInput.x > 0 ? 1 : -1;
       selectedButtonIndex = Mathf.Clamp(selectedButtonIndex, 0, menuButtons.Count - 1);
-
-      Debug.Log($"Selected button index: {selectedButtonIndex}");
+      menuButtons[selectedButtonIndex].AddToClassList("active");
     }
   }
 }
