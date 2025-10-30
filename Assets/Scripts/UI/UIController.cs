@@ -42,7 +42,6 @@ namespace RPG.UI
 
       menuButtons[selectedButtonIndex].RemoveFromClassList("active");
 
-
       Vector2 navigationInput = context.ReadValue<Vector2>();
       selectedButtonIndex += navigationInput.x > 0 ? 1 : -1;
       selectedButtonIndex = Mathf.Clamp(selectedButtonIndex, 0, menuButtons.Count - 1);

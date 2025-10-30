@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using RPG.Core;
 
 namespace RPG.UI
 {
@@ -23,7 +24,11 @@ namespace RPG.UI
     {
       int selectedBtnIndex = uiController.selectedButtonIndex;
       Button button = uiController.menuButtons[selectedBtnIndex];
-      Debug.Log($"Selected button: {button.text}");
+
+      if (button.name == "start-button")
+      {
+        SceneTranstion.Initiate(1); // Load the game scene
+      }
     }
   }
 }
