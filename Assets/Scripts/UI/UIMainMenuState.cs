@@ -6,14 +6,13 @@ namespace RPG.UI
 {
   public class UIMainMenuState : UIBaseState
   {
-    public UIMainMenuState(UIController uiController) : base(uiController)
-    {
-
-    }
+    public UIMainMenuState(UIController uiController) : base(uiController) { }
 
     public override void EnterState()
     {
-      uiController.menuButtons = uiController.rootElement
+      uiController.mainMenuElement.style.display = DisplayStyle.Flex;
+
+      uiController.menuButtons = uiController.mainMenuElement
         .Query<Button>(null, "menu-button")
         .ToList();
 
