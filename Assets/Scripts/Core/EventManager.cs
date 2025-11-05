@@ -9,7 +9,7 @@ namespace RPG.Core
 
     public static void RaiseChangePlayerHealth()
     {
-      OnChangePlayerHealth.Invoke();
+      OnChangePlayerHealth?.Invoke();
     }
   }
 }
