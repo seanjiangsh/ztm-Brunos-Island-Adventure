@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using RPG.Core;
 
 namespace RPG.UI
 {
@@ -12,6 +13,7 @@ namespace RPG.UI
     public VisualElement rootElement;
     public VisualElement mainMenuElement;
     public VisualElement playerInfoElement;
+    public Label healthLabel;
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;
@@ -25,8 +27,14 @@ namespace RPG.UI
 
       mainMenuElement = rootElement.Q<VisualElement>("main-menu-container");
       playerInfoElement = rootElement.Q<VisualElement>("player-info-container");
+      healthLabel = playerInfoElement.Q<Label>("health-label");
 
       mainMenuState = new UIMainMenuState(this);
+    }
+
+    void OnEnable()
+    {
+      EventManager.OnChangePlayerHealth += HandlePlayerHealthChange;
     }
 
     // Start is called before the first frame update
@@ -43,6 +51,11 @@ namespace RPG.UI
       {
         playerInfoElement.style.display = DisplayStyle.Flex;
       }
+    }
+
+    void OnDisable()
+    {
+      EventManager.OnChangePlayerHealth -= HandlePlayerHealthChange;
     }
 
     public void HandleInteract(InputAction.CallbackContext context)
@@ -62,6 +75,11 @@ namespace RPG.UI
       selectedButtonIndex += navigationInput.x > 0 ? 1 : -1;
       selectedButtonIndex = Mathf.Clamp(selectedButtonIndex, 0, menuButtons.Count - 1);
       menuButtons[selectedButtonIndex].AddToClassList("active");
+    }
+
+    private void HandlePlayerHealthChange(float newHealthPoints)
+    {
+      healthLabel.text = newHealthPoints.ToString();
     }
   }
 }
