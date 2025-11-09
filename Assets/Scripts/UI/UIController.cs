@@ -14,6 +14,7 @@ namespace RPG.UI
     public VisualElement mainMenuElement;
     public VisualElement playerInfoElement;
     public Label healthLabel;
+    public Label potionsLabel;
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;
@@ -28,6 +29,7 @@ namespace RPG.UI
       mainMenuElement = rootElement.Q<VisualElement>("main-menu-container");
       playerInfoElement = rootElement.Q<VisualElement>("player-info-container");
       healthLabel = playerInfoElement.Q<Label>("health-label");
+      potionsLabel = playerInfoElement.Q<Label>("potions-label");
 
       mainMenuState = new UIMainMenuState(this);
     }
@@ -35,13 +37,14 @@ namespace RPG.UI
     void OnEnable()
     {
       EventManager.OnChangePlayerHealth += HandlePlayerHealthChange;
+      EventManager.OnChangePlayerPotion += HandlePotionCountChange;
     }
 
     // Start is called before the first frame update
     void Start()
     {
       int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-      Debug.Log("Current Scene Index: " + sceneIndex);
+      // Debug.Log("Current Scene Index: " + sceneIndex);
       if (sceneIndex == 0)
       {
         currentState = mainMenuState;
@@ -56,6 +59,7 @@ namespace RPG.UI
     void OnDisable()
     {
       EventManager.OnChangePlayerHealth -= HandlePlayerHealthChange;
+      EventManager.OnChangePlayerPotion -= HandlePotionCountChange;
     }
 
     public void HandleInteract(InputAction.CallbackContext context)
@@ -80,6 +84,11 @@ namespace RPG.UI
     private void HandlePlayerHealthChange(float newHealthPoints)
     {
       healthLabel.text = newHealthPoints.ToString();
+    }
+
+    private void HandlePotionCountChange(int newPotionCount)
+    {
+      potionsLabel.text = newPotionCount.ToString();
     }
   }
 }

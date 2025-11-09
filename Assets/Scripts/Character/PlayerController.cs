@@ -31,6 +31,7 @@ namespace RPG.Character
       combatCmp.damage = stats.damage;
 
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
+      EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
     }
   }
 

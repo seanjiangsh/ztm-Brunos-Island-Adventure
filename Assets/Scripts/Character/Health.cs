@@ -11,11 +11,10 @@ namespace RPG.Character
   {
     [NonSerialized] public float healthPoints = 0f;
     public event UnityAction OnStartDefeated = () => { };
+    public int potionCount = 1;
 
-    private bool isDefeated = false;
-
-    [SerializeField] private int potionCount = 1;
     [SerializeField] private float healAmount = 15f;
+    private bool isDefeated = false;
     private Animator animatorCmp;
     private BubbleEvent bubbleEventCmp;
 
@@ -76,6 +75,7 @@ namespace RPG.Character
       healthPoints += healAmount;
 
       EventManager.RaiseChangePlayerHealth(healthPoints);
+      EventManager.RaiseChangePlayerPotion(potionCount);
     }
   }
 }
