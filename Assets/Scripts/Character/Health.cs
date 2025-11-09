@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using System;
 using RPG.Utility;
 using RPG.Core;
@@ -13,6 +14,8 @@ namespace RPG.Character
 
     private bool isDefeated = false;
 
+    [SerializeField] private int potionCount = 1;
+    [SerializeField] private float healAmount = 15f;
     private Animator animatorCmp;
     private BubbleEvent bubbleEventCmp;
 
@@ -63,6 +66,16 @@ namespace RPG.Character
     private void HandleBubbleCompleteDefeat()
     {
       Destroy(gameObject);
+    }
+
+    public void HandleHeal(InputAction.CallbackContext context)
+    {
+      if (!context.performed || potionCount == 0) return;
+
+      potionCount--;
+      healthPoints += healAmount;
+
+      EventManager.RaiseChangePlayerHealth(healthPoints);
     }
   }
 }
