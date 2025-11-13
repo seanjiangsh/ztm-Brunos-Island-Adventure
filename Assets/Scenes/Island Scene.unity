@@ -41010,6 +41010,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4928996253227442036, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928996253227442036, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5564349348809912333, guid: 918d2e999503f8142a084227961ea760, type: 3}
       propertyPath: m_Name
       value: Enemy Stationary Guard
@@ -93825,6 +93833,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1971292154}
     m_Modifications:
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391652131681857495, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
       propertyPath: m_Name
       value: Enemy Patrol Guard 2
@@ -131642,6 +131658,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1971292154}
     m_Modifications:
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391652131681857495, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
       propertyPath: m_Name
       value: Enemy Patrol Guard 1
@@ -151793,6 +151817,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1971292154}
     m_Modifications:
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867903660354437294, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391652131681857495, guid: 6f4a451703bc87a4483913fead59d4cb, type: 3}
       propertyPath: m_Name
       value: Enemy Patrol Guard 3
