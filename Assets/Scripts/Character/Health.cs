@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using System;
 using RPG.Utility;
 using RPG.Core;
@@ -10,17 +11,22 @@ namespace RPG.Character
   public class Health : MonoBehaviour
   {
     [NonSerialized] public float healthPoints = 0f;
-    public event UnityAction OnStartDefeated = () => { };
-    public int potionCount = 1;
+    [NonSerialized] public Slider healthBarCmp;
+    [SerializeField] public int potionCount = 1;
 
     [SerializeField] private float healAmount = 15f;
+
+    public event UnityAction OnStartDefeated = () => { };
+
     private bool isDefeated = false;
     private Animator animatorCmp;
     private BubbleEvent bubbleEventCmp;
 
+
     private void Awake()
     {
       animatorCmp = GetComponentInChildren<Animator>();
+      healthBarCmp = GetComponentInChildren<Slider>();
       bubbleEventCmp = GetComponentInChildren<BubbleEvent>();
     }
 
@@ -56,6 +62,11 @@ namespace RPG.Character
       if (CompareTag(Constants.ENEMY_TAG))
       {
         OnStartDefeated.Invoke();
+      }
+
+      if (healthBarCmp != null)
+      {
+        healthBarCmp.value = healthPoints;
       }
 
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
