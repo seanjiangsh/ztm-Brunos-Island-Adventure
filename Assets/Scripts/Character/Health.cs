@@ -49,6 +49,11 @@ namespace RPG.Character
         EventManager.RaiseChangePlayerHealth(healthPoints);
       }
 
+      if (healthBarCmp != null)
+      {
+        healthBarCmp.value = healthPoints;
+      }
+
       if (healthPoints <= 0 && !isDefeated)
       {
         Defeated();
@@ -64,10 +69,7 @@ namespace RPG.Character
         OnStartDefeated.Invoke();
       }
 
-      if (healthBarCmp != null)
-      {
-        healthBarCmp.value = healthPoints;
-      }
+
 
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
       isDefeated = true;
