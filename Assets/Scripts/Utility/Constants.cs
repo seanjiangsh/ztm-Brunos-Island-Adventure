@@ -8,5 +8,6 @@ namespace RPG.Utility
     public const string ANIMATOR_IS_ATTACKING_PARAM = "isAttacking";
     public const string ANIMATOR_IS_SHAKING_PARAM = "isShaking";
     public const string ANIMATOR_IS_DEFEATED_PARAM = "isDefeated";
+    public const string MAIN_CAMERA_TAG = "MainCamera";
   }
 }

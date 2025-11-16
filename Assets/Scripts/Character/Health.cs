@@ -69,8 +69,6 @@ namespace RPG.Character
         OnStartDefeated.Invoke();
       }
 
-
-
       animatorCmp.SetTrigger(Constants.ANIMATOR_IS_DEFEATED_PARAM);
       isDefeated = true;
     }
