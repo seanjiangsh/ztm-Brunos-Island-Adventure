@@ -1,7 +1,9 @@
-Once upon a time...
+-> start
 
- * There were two choices.
- * There were four lines of content.
+=== start ===
+This is the content of the knot.
 
-- They lived happily ever after.
-    -> END
+A long time ago, a cuple of orcs stole my candy
+It would be nice if I could get it back. 
+By chance, have you come across my candy?
+-> END
