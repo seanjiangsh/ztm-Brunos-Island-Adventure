@@ -12,26 +12,11 @@ I’ve been searching high and low, under rocks, inside hollow trees, and even i
 Tell me, traveler… by any slim, miraculous chance…  
 Have you come across my precious candy?
 
-+ "Actually, yes. I think this belongs to you." -> success
-+ "Sorry, no candy here." -> noCandy
-+ "I met some orcs, but they sprinted off with something shiny…" -> failure
++ [Yes] -> success
++ [No] -> failure
+
 
 -> DONE
-
-
-=== noCandy ===
-No candy…  
-No glimmer of sweetness…  
-No rainbow-swirled hope…
-
-*sigh*  
-Well, I suppose fate can be cruel.  
-If you ever do find some candy—mine or otherwise—think of me, the humble candyless soul wandering this cold, flavorless world.
-
-Thank you for being honest, at least. Honesty is sweeter than candy…  
-…well, no, that’s a lie. Candy is sweeter. But honesty is still nice.
-
--> postCompletion
 
 
 === success ===
