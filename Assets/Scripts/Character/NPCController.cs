@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace RPG.Character
 {
@@ -19,6 +20,12 @@ namespace RPG.Character
     private void OnTriggerExit()
     {
       canvasCmp.enabled = false;
+    }
+
+    public void HandleInteract(InputAction.CallbackContext context)
+    {
+      if (!context.performed || !canvasCmp.enabled) return;
+      Debug.Log("Interacted with NPC: " + gameObject.name);
     }
   }
 }
