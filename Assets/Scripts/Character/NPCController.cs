@@ -5,6 +5,7 @@ namespace RPG.Character
 {
   public class NPCController : MonoBehaviour
   {
+    public TextAsset inkJSONAsset;
     private Canvas canvasCmp;
 
     private void Awake()
@@ -25,6 +26,13 @@ namespace RPG.Character
     public void HandleInteract(InputAction.CallbackContext context)
     {
       if (!context.performed || !canvasCmp.enabled) return;
+
+      if (inkJSONAsset == null)
+      {
+        Debug.LogError($"Ink JSON Asset is not assigned in NPCController {name}.");
+        return;
+      }
+
       Debug.Log("Interacted with NPC: " + gameObject.name);
     }
   }
