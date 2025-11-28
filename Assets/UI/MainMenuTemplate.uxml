@@ -20,4 +20,10 @@
             <engine:Label text="000&#10;" name="potions-label" class="stat-value" />
         </engine:VisualElement>
     </engine:VisualElement>
+    <engine:VisualElement name="dialog-container" style="flex-grow: 1; position: absolute; left: 0; bottom: 0; width: 100%; padding-top: 60px; padding-right: 60px; padding-bottom: 60px; padding-left: 60px;">
+        <engine:VisualElement class="primary-container" style="flex-grow: 1;">
+            <engine:Label text="Label" name="dialog-text" class="base-text" style="font-size: 32px; -unity-font-style: normal; color: rgb(118, 62, 62); -unity-text-align: upper-left; -unity-text-outline-width: 0;" />
+            <engine:Button text="Button" name="dialog-next-button" class="menu-button" style="position: absolute; right: 50px; bottom: -40px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
 </engine:UXML>
