@@ -7,6 +7,7 @@ using RPG.Core;
 
 namespace RPG.UI
 {
+  [RequireComponent(typeof(UIDocument))]
   public class UIController : MonoBehaviour
   {
     private UIDocument uiDocumentCmp;
