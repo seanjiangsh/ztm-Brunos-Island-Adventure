@@ -1,9 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using RPG.Core;
 
 namespace RPG.UI
 {
@@ -19,11 +15,10 @@ namespace RPG.UI
 
     public override void EnterState()
     {
-      dialogueContainer = uiController.rootElement.Q<VisualElement>("dialogue-container");
-      dialogueText = dialogueContainer.Q<Label>("dialogue-text");
+      dialogueContainer = uiController.rootElement.Q<VisualElement>("dialog-container");
+      dialogueText = dialogueContainer.Q<Label>("dialog-text");
       nextButton = dialogueContainer.Q<VisualElement>("dialog-next-button");
       choicesGroup = dialogueContainer.Q<VisualElement>("choices-group");
-
       dialogueContainer.style.display = DisplayStyle.Flex;
     }
 

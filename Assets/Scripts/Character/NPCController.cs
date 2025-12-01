@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using RPG.Core;
 
 namespace RPG.Character
 {
@@ -33,7 +34,7 @@ namespace RPG.Character
         return;
       }
 
-      Debug.Log("Interacted with NPC: " + gameObject.name);
+      EventManager.RaiseInitiateDialogue(inkJSONAsset);
     }
   }
 }
