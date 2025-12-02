@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using Ink.Runtime;
 
 namespace RPG.UI
 {
@@ -10,6 +11,7 @@ namespace RPG.UI
     private Label dialogueText;
     private VisualElement nextButton;
     private VisualElement choicesGroup;
+    private Story currentStory;
 
     public UIDialogueState(UIController uiController) : base(uiController) { }
 
@@ -23,5 +25,10 @@ namespace RPG.UI
     }
 
     public override void SelectButton() { }
+
+    public void SetStory(TextAsset inkJSONAsset)
+    {
+      currentStory = new Story(inkJSONAsset.text);
+    }
   }
 }
