@@ -29,6 +29,12 @@ namespace RPG.UI
     public void SetStory(TextAsset inkJSONAsset)
     {
       currentStory = new Story(inkJSONAsset.text);
+      UpdateDialogue();
+    }
+
+    public void UpdateDialogue()
+    {
+      dialogueText.text = currentStory.Continue();
     }
   }
 }
