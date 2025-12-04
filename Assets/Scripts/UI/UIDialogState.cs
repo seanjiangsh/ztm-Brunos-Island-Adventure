@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 using Ink.Runtime;
+using RPG.Utility;
 
 namespace RPG.UI
 {
@@ -12,6 +14,7 @@ namespace RPG.UI
     private VisualElement nextButton;
     private VisualElement choicesGroup;
     private Story currentStory;
+    private PlayerInput playerInputCmp;
 
     public UIDialogueState(UIController uiController) : base(uiController) { }
 
@@ -22,6 +25,9 @@ namespace RPG.UI
       nextButton = dialogueContainer.Q<VisualElement>("dialog-next-button");
       choicesGroup = dialogueContainer.Q<VisualElement>("choices-group");
       dialogueContainer.style.display = DisplayStyle.Flex;
+
+      playerInputCmp = GameObject.FindGameObjectWithTag(Constants.GAME_MANAGER_TAG).GetComponent<PlayerInput>();
+      playerInputCmp.SwitchCurrentActionMap(Constants.UI_ACTION_MAP);
     }
 
     public override void SelectButton() { }
