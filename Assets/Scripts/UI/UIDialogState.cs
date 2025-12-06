@@ -30,7 +30,10 @@ namespace RPG.UI
       playerInputCmp.SwitchCurrentActionMap(Constants.UI_ACTION_MAP);
     }
 
-    public override void SelectButton() { }
+    public override void SelectButton()
+    {
+      UpdateDialogue(); 
+    }
 
     public void SetStory(TextAsset inkJSONAsset)
     {
