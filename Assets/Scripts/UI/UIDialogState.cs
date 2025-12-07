@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Ink.Runtime;
 using RPG.Utility;
+using System.Collections.Generic;
 
 namespace RPG.UI
 {
@@ -50,13 +51,21 @@ namespace RPG.UI
 
       if (hasChoices)
       {
-        Debug.Log("Displaying choices");
+        HandleNewChoices(currentStory.currentChoices);
       }
       else
       {
         nextButton.style.display = DisplayStyle.Flex;
         choicesGroup.style.display = DisplayStyle.None;
       }
+    }
+
+    private void HandleNewChoices(List<Choice> choices)
+    {
+      nextButton.style.display = DisplayStyle.None;
+      choicesGroup.style.display = DisplayStyle.Flex;
+      choicesGroup.Clear();
+      uiController.menuButtons?.Clear();
     }
   }
 }
