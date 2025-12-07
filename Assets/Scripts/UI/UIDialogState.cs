@@ -16,6 +16,8 @@ namespace RPG.UI
     private Story currentStory;
     private PlayerInput playerInputCmp;
 
+    private bool hasChoices = false;
+
     public UIDialogueState(UIController uiController) : base(uiController) { }
 
     public override void EnterState()
@@ -44,6 +46,17 @@ namespace RPG.UI
     public void UpdateDialogue()
     {
       dialogueText.text = currentStory.Continue();
+      hasChoices = currentStory.currentChoices.Count > 0;
+
+      if (hasChoices)
+      {
+        Debug.Log("Displaying choices");
+      }
+      else
+      {
+        nextButton.style.display = DisplayStyle.Flex;
+        choicesGroup.style.display = DisplayStyle.None;
+      }
     }
   }
 }
