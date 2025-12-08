@@ -66,6 +66,13 @@ namespace RPG.UI
       choicesGroup.style.display = DisplayStyle.Flex;
       choicesGroup.Clear();
       uiController.menuButtons?.Clear();
+
+      choices.ForEach(CreateNewChoiceButton);
+    }
+
+    private void CreateNewChoiceButton(Choice choice)
+    {
+      Debug.Log("Creating choice button: " + choice.text);
     }
   }
 }

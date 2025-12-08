@@ -21,9 +21,9 @@
         </engine:VisualElement>
     </engine:VisualElement>
     <engine:VisualElement name="dialog-container" style="flex-grow: 1; position: absolute; left: 0; bottom: 0; width: 100%; padding-top: 60px; padding-right: 60px; padding-bottom: 60px; padding-left: 60px; display: none;">
-        <engine:VisualElement class="primary-container" style="flex-grow: 1;">
-            <engine:Label text="Label" name="dialog-text" class="base-text" style="font-size: 32px; -unity-font-style: normal; color: rgb(118, 62, 62); -unity-text-align: upper-left; -unity-text-outline-width: 0;" />
-            <engine:Button text="Button" name="dialog-next-button" class="menu-button" style="position: absolute; right: 50px; bottom: -40px; display: none;" />
+        <engine:VisualElement class="primary-container" style="flex-grow: 1; flex-wrap: wrap; display: flex;">
+            <engine:Label text="Label" name="dialog-text" class="base-text" style="font-size: 16px; -unity-font-style: normal; color: rgb(118, 62, 62); -unity-text-align: upper-left; -unity-text-outline-width: 0; padding-top: 4px; padding-right: 2px; padding-bottom: 4px; padding-left: 1px; flex-wrap: nowrap; white-space: normal;" />
+            <engine:Button text="Button" name="dialog-next-button" class="menu-button" style="position: absolute; right: 50px; bottom: -40px; display: flex; font-size: 16px; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px;" />
             <engine:VisualElement name="choices-group" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-self: auto; position: absolute; right: 50px; bottom: -50px; display: none;">
                 <engine:Button text="No" name="no-button" class="menu-button" />
                 <engine:Button text="Yes" name="yes-button" class="menu-button" />
