@@ -72,7 +72,11 @@ namespace RPG.UI
 
     private void CreateNewChoiceButton(Choice choice)
     {
-      Debug.Log("Creating choice button: " + choice.text);
+      Button choiceButton = new Button();
+      choiceButton.AddToClassList("menu-button");
+      choiceButton.text = choice.text.Trim();
+
+      choicesGroup.Add(choiceButton);
     }
   }
 }
