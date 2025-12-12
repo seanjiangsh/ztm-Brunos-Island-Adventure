@@ -46,6 +46,13 @@ namespace RPG.UI
 
     public void UpdateDialogue()
     {
+      if (hasChoices)
+      {
+        Button selectedChoiceButton = uiController.menuButtons[uiController.selectedButtonIndex];
+        int choiceIndex = uiController.menuButtons.IndexOf(selectedChoiceButton);
+        currentStory.ChooseChoiceIndex(choiceIndex);
+      }
+      
       dialogueText.text = currentStory.Continue();
       hasChoices = currentStory.currentChoices.Count > 0;
 
