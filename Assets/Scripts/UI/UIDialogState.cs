@@ -84,6 +84,8 @@ namespace RPG.UI
 
       uiController.menuButtons = new List<Button>(choicesGroup.Query<Button>().ToList());
       uiController.menuButtons[0].AddToClassList("active");
+
+      uiController.selectedButtonIndex = 0;
     }
 
     private void CreateNewChoiceButton(Choice choice)
