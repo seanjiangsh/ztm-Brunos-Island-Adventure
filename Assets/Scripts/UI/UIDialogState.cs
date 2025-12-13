@@ -52,6 +52,12 @@ namespace RPG.UI
         int choiceIndex = uiController.menuButtons.IndexOf(selectedChoiceButton);
         currentStory.ChooseChoiceIndex(choiceIndex);
       }
+
+      if (!currentStory.canContinue)
+      {
+        ExitDialog();
+        return;
+      }
       
       dialogueText.text = currentStory.Continue();
       hasChoices = currentStory.currentChoices.Count > 0;
@@ -87,6 +93,12 @@ namespace RPG.UI
       choiceButton.text = choice.text.Trim();
 
       choicesGroup.Add(choiceButton);
+    }
+
+    private void ExitDialog()
+    {
+      dialogueContainer.style.display = DisplayStyle.None;
+      playerInputCmp.SwitchCurrentActionMap(Constants.GAMEPLAY_ACTION_MAP);
     }
   }
 }
