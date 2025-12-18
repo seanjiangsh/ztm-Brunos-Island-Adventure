@@ -44,6 +44,7 @@ namespace RPG.UI
       EventManager.OnChangePlayerHealth += HandlePlayerHealthChange;
       EventManager.OnChangePlayerPotion += HandlePotionCountChange;
       EventManager.OnInitiateDialogue += HandleInitiateDialogue;
+      EventManager.OnTreasureChestUnlocked += HandleTreasureChestUnlocked;
     }
 
     // Start is called before the first frame update
@@ -67,6 +68,7 @@ namespace RPG.UI
       EventManager.OnChangePlayerHealth -= HandlePlayerHealthChange;
       EventManager.OnChangePlayerPotion -= HandlePotionCountChange;
       EventManager.OnInitiateDialogue -= HandleInitiateDialogue;
+      EventManager.OnTreasureChestUnlocked -= HandleTreasureChestUnlocked;
     }
 
     public void HandleInteract(InputAction.CallbackContext context)
@@ -103,6 +105,12 @@ namespace RPG.UI
       currentState = dialogueState;
       currentState.EnterState();
       (currentState as UIDialogueState).SetStory(inkJSONAsset);
+    }
+
+    private void HandleTreasureChestUnlocked()
+    {
+     currentState = questItemState;
+     currentState.EnterState();
     }
   }
 }

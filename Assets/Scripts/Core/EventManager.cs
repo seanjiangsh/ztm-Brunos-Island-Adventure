@@ -8,6 +8,7 @@ namespace RPG.Core
     public static event UnityAction<float> OnChangePlayerHealth;
     public static event UnityAction<int> OnChangePlayerPotion;
     public static event UnityAction<TextAsset> OnInitiateDialogue;
+    public static event UnityAction OnTreasureChestUnlocked;
 
     public static void RaiseChangePlayerHealth(float newHealthPoints)
     {
@@ -22,6 +23,11 @@ namespace RPG.Core
     public static void RaiseInitiateDialogue(TextAsset inkJSONAsset)
     {
       OnInitiateDialogue?.Invoke(inkJSONAsset);
+    }
+
+    public static void RaiseTreasureChestUnlocked()
+    {
+      OnTreasureChestUnlocked?.Invoke();
     }
   }
 }
