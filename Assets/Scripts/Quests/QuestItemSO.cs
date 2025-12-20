@@ -10,6 +10,7 @@ namespace RPG.Quests
   )]
   public class QuestItemSO : ScriptableObject
   {
+    [Tooltip("Item name must be unique to prevent conflicts with other quest items.")]
     public string itemName;
     public Sprite itemIcon;
     [TextArea]
