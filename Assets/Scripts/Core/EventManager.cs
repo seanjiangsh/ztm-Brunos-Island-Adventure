@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Quests;
 
 namespace RPG.Core
 {
@@ -8,7 +9,7 @@ namespace RPG.Core
     public static event UnityAction<float> OnChangePlayerHealth;
     public static event UnityAction<int> OnChangePlayerPotion;
     public static event UnityAction<TextAsset> OnInitiateDialogue;
-    public static event UnityAction OnTreasureChestUnlocked;
+    public static event UnityAction<QuestItemSO> OnTreasureChestUnlocked;
 
     public static void RaiseChangePlayerHealth(float newHealthPoints)
     {
@@ -25,9 +26,9 @@ namespace RPG.Core
       OnInitiateDialogue?.Invoke(inkJSONAsset);
     }
 
-    public static void RaiseTreasureChestUnlocked()
+    public static void RaiseTreasureChestUnlocked(QuestItemSO questItem)
     {
-      OnTreasureChestUnlocked?.Invoke();
+      OnTreasureChestUnlocked?.Invoke(questItem);
     }
   }
 }

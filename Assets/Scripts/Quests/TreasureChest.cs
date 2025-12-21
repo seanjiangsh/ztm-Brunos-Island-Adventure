@@ -2,11 +2,14 @@ using RPG.Utility;
 using RPG.Core; 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 namespace RPG.Quests
 {
   public class TreasureChest : MonoBehaviour
   {
+    [SerializeField] private QuestItemSO questItem;
+
     public Animator animatorCmp;
 
     private bool isInteractable = false;
@@ -27,7 +30,7 @@ namespace RPG.Quests
     {
       if (!isInteractable || hasBeenOpened) return;
 
-      EventManager.RaiseTreasureChestUnlocked();
+      EventManager.RaiseTreasureChestUnlocked(questItem);
       animatorCmp.SetBool(Constants.ANIMATOR_IS_SHAKING_PARAM, false);
       hasBeenOpened = true;
       Debug.Log("Treasure Chest Opened!");
