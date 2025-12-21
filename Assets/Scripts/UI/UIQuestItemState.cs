@@ -32,5 +32,10 @@ namespace RPG.UI
       questItemContainer.style.display = DisplayStyle.None;
       playerInputCmp.SwitchCurrentActionMap(Constants.GAMEPLAY_ACTION_MAP);
     }
+
+    public void SetItemQuestLabel(string itemName)
+    {
+      questItemText.text = $"You have obtained: {itemName}!";
+    }
   }
 }

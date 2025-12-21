@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using RPG.Core;
+using RPG.Quests;
 
 namespace RPG.UI
 {
@@ -107,10 +108,11 @@ namespace RPG.UI
       (currentState as UIDialogueState).SetStory(inkJSONAsset);
     }
 
-    private void HandleTreasureChestUnlocked()
+    private void HandleTreasureChestUnlocked(QuestItemSO questItem)
     {
      currentState = questItemState;
      currentState.EnterState();
+      (currentState as UIQuestItemState).SetItemQuestLabel(questItem.itemName);
     }
   }
 }

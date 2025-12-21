@@ -47615,6 +47615,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2782098879937569507, guid: 73296db7f7503414a8a7e4dfaa8f4caf, type: 3}
+      propertyPath: questItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 69aac5f180f58df4aac210fb36cc0966, type: 2}
     - target: {fileID: 4381550723375176249, guid: 73296db7f7503414a8a7e4dfaa8f4caf, type: 3}
       propertyPath: m_Name
       value: Treasure Chest
