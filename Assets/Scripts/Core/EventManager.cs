@@ -10,6 +10,7 @@ namespace RPG.Core
     public static event UnityAction<int> OnChangePlayerPotion;
     public static event UnityAction<TextAsset> OnInitiateDialogue;
     public static event UnityAction<QuestItemSO> OnTreasureChestUnlocked;
+    public static event UnityAction<bool> OnToggleUI;
 
     public static void RaiseChangePlayerHealth(float newHealthPoints)
     {
@@ -29,6 +30,11 @@ namespace RPG.Core
     public static void RaiseTreasureChestUnlocked(QuestItemSO questItem)
     {
       OnTreasureChestUnlocked?.Invoke(questItem);
+    }
+
+    public static void RaiseToggleUI(bool isOpened)
+    {
+      OnToggleUI?.Invoke(isOpened);
     }
   }
 }

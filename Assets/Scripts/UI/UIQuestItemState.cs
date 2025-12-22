@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using RPG.Utility;
+using RPG.Core;
 
 namespace RPG.UI
 {
@@ -25,12 +26,16 @@ namespace RPG.UI
       questItemText = questItemContainer.Q<Label>("quest-item-label");
 
       questItemContainer.style.display = DisplayStyle.Flex;
+
+      EventManager.RaiseToggleUI(true);
     }
 
     public override void SelectButton()
     {
       questItemContainer.style.display = DisplayStyle.None;
       playerInputCmp.SwitchCurrentActionMap(Constants.GAMEPLAY_ACTION_MAP);
+
+      EventManager.RaiseToggleUI(false);
     }
 
     public void SetItemQuestLabel(string itemName)
