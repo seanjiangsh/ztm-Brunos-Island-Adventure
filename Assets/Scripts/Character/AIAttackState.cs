@@ -24,6 +24,12 @@ namespace RPG.Character
         return;
       }
 
+      if (enemy.HasUIOpened)
+      {
+        enemy.combatCmp.CancelAttack();
+        return;
+      }
+
       enemy.combatCmp.StartAttack();
       enemy.transform.LookAt(enemy.player.transform);
     }
