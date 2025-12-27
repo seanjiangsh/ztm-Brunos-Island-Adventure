@@ -17,6 +17,7 @@ namespace RPG.UI
     public VisualElement playerInfoElement;
     public Label healthLabel;
     public Label potionsLabel;
+    private VisualElement questItemIcon;
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;
@@ -34,6 +35,7 @@ namespace RPG.UI
       playerInfoElement = rootElement.Q<VisualElement>("player-info-container");
       healthLabel = playerInfoElement.Q<Label>("health-label");
       potionsLabel = playerInfoElement.Q<Label>("potions-label");
+      questItemIcon = rootElement.Q<VisualElement>("quest-item-icon");
 
       mainMenuState = new UIMainMenuState(this);
       dialogueState = new UIDialogueState(this);
@@ -110,9 +112,10 @@ namespace RPG.UI
 
     private void HandleTreasureChestUnlocked(QuestItemSO questItem)
     {
-     currentState = questItemState;
-     currentState.EnterState();
+      currentState = questItemState;
+      currentState.EnterState();
       (currentState as UIQuestItemState).SetItemQuestLabel(questItem.itemName);
+      questItemIcon.style.display = DisplayStyle.Flex;    
     }
   }
 }

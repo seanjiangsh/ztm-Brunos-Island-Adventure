@@ -19,6 +19,7 @@
             <engine:Label text="Potions" class="stat-name" />
             <engine:Label text="000&#10;" name="potions-label" class="stat-value" />
         </engine:VisualElement>
+        <engine:VisualElement name="quest-item-icon" style="flex-grow: 1; width: 60px; height: 60px; background-image: url(&quot;project://database/Assets/Game%20Assets/Sprites/Quest%20Item.png?fileID=2800000&amp;guid=82f427d1fad0fe5459bae6dfe603876a&amp;type=3#Quest Item&quot;); margin-left: 20px; display: none;" />
     </engine:VisualElement>
     <engine:VisualElement name="dialog-container" style="flex-grow: 1; position: absolute; left: 0; bottom: 0; width: 100%; padding-top: 60px; padding-right: 60px; padding-bottom: 60px; padding-left: 60px; display: none;">
         <engine:VisualElement class="primary-container" style="flex-grow: 0; flex-wrap: wrap; display: flex;">
