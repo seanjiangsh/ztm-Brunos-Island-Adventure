@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using RPG.Core;
+using RPG.Quests;
 
 namespace RPG.Character
 {
   public class NPCController : MonoBehaviour
   {
     public TextAsset inkJSONAsset;
+    public QuestItemSO desiredQuestItem;
+    private bool hasQuestItem = false;
     private Canvas canvasCmp;
 
     private void Awake()
