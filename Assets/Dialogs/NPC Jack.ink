@@ -1,3 +1,5 @@
+EXTERNAL VerifyQuest()
+
 -> start
 
 === start ===
@@ -12,8 +14,11 @@ I’ve been searching high and low, under rocks, inside hollow trees, and even i
 Tell me, traveler… by any slim, miraculous chance…  
 Have you come across my precious candy?
 
-+ [Yes] -> success
-+ [No] -> failure
++ [Yes]
+  ~ VerifyQuest()
+  -> success
++ [No]
+  -> failure
 
 
 -> DONE

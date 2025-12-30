@@ -41,6 +41,7 @@ namespace RPG.UI
     public void SetStory(TextAsset inkJSONAsset)
     {
       currentStory = new Story(inkJSONAsset.text);
+      currentStory.BindExternalFunction("VerifyQuest", VerifyQuest);
       UpdateDialogue();
     }
 
@@ -101,6 +102,11 @@ namespace RPG.UI
     {
       dialogueContainer.style.display = DisplayStyle.None;
       playerInputCmp.SwitchCurrentActionMap(Constants.GAMEPLAY_ACTION_MAP);
+    }
+
+    public void VerifyQuest()
+    {
+      Debug.Log("Verifying quest from dialogue state.");
     }
   }
 }
