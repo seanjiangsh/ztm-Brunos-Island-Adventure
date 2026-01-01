@@ -109,7 +109,11 @@ namespace RPG.UI
 
     public void VerifyQuest()
     {
-      Debug.Log("Verifying quest from dialogue state.");
+      if (npcControllerCmp != null)
+      {
+        bool hasQuestItem = npcControllerCmp.CheckPlayerQuestItem();
+       
+      }
     }
   }
 }
