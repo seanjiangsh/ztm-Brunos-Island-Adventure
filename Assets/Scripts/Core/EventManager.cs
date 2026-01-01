@@ -8,7 +8,7 @@ namespace RPG.Core
   {
     public static event UnityAction<float> OnChangePlayerHealth;
     public static event UnityAction<int> OnChangePlayerPotion;
-    public static event UnityAction<TextAsset> OnInitiateDialogue;
+    public static event UnityAction<TextAsset, GameObject> OnInitiateDialogue;
     public static event UnityAction<QuestItemSO> OnTreasureChestUnlocked;
     public static event UnityAction<bool> OnToggleUI;
 
@@ -22,9 +22,9 @@ namespace RPG.Core
       OnChangePlayerPotion?.Invoke(newPotionCount);
     }
 
-    public static void RaiseInitiateDialogue(TextAsset inkJSONAsset)
+    public static void RaiseInitiateDialogue(TextAsset inkJSONAsset, GameObject npc)
     {
-      OnInitiateDialogue?.Invoke(inkJSONAsset);
+      OnInitiateDialogue?.Invoke(inkJSONAsset, npc);
     }
 
     public static void RaiseTreasureChestUnlocked(QuestItemSO questItem)

@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Ink.Runtime;
 using RPG.Utility;
-using System.Collections.Generic;
+using RPG.Character;
 
 namespace RPG.UI
 {
@@ -16,8 +17,8 @@ namespace RPG.UI
     private VisualElement choicesGroup;
     private Story currentStory;
     private PlayerInput playerInputCmp;
-
     private bool hasChoices = false;
+    private NPCController npcControllerCmp ;
 
     public UIDialogueState(UIController uiController) : base(uiController) { }
 
@@ -38,10 +39,12 @@ namespace RPG.UI
       UpdateDialogue(); 
     }
 
-    public void SetStory(TextAsset inkJSONAsset)
+    public void SetStory(TextAsset inkJSONAsset, GameObject npc)
     {
       currentStory = new Story(inkJSONAsset.text);
       currentStory.BindExternalFunction("VerifyQuest", VerifyQuest);
+      npcControllerCmp = npc.GetComponent<NPCController>();
+      
       UpdateDialogue();
     }
 

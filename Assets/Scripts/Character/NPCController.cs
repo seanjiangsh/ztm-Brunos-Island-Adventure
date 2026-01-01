@@ -37,7 +37,7 @@ namespace RPG.Character
         return;
       }
 
-      EventManager.RaiseInitiateDialogue(inkJSONAsset);
+      EventManager.RaiseInitiateDialogue(inkJSONAsset, gameObject);
     }
   }
 }

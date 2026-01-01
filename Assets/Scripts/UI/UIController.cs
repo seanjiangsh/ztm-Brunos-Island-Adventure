@@ -103,11 +103,11 @@ namespace RPG.UI
       potionsLabel.text = newPotionCount.ToString();
     }
 
-    private void HandleInitiateDialogue(TextAsset inkJSONAsset)
+    private void HandleInitiateDialogue(TextAsset inkJSONAsset, GameObject npc)
     {
       currentState = dialogueState;
       currentState.EnterState();
-      (currentState as UIDialogueState).SetStory(inkJSONAsset);
+      (currentState as UIDialogueState).SetStory(inkJSONAsset, npc);
     }
 
     private void HandleTreasureChestUnlocked(QuestItemSO questItem)
