@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using RPG.Core;
 using RPG.Quests;
+using RPG.Utility;
 
 namespace RPG.Character
 {
@@ -42,6 +43,13 @@ namespace RPG.Character
 
     public bool CheckPlayerQuestItem()
     {
+      if (hasQuestItem) return true;
+
+      Inventory playerInventory = GameObject
+        .FindGameObjectWithTag(Constants.PLAYER_TAG)
+        .GetComponent<Inventory>();
+      
+      hasQuestItem = playerInventory.HasItem(desiredQuestItem);
       return hasQuestItem;
     }
   }

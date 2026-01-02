@@ -23,5 +23,15 @@ namespace RPG.Quests
       items.Add(item);
       Debug.Log($"Added {item.itemName} to inventory.");
     }
+
+    public bool HasItem(QuestItemSO desiredItem)
+    {
+      bool found = false;
+      items.ForEach((QuestItemSO item) =>
+      {
+        if(item.name == desiredItem.name) found = true;
+      });
+      return found;
+    }
   }
 }
