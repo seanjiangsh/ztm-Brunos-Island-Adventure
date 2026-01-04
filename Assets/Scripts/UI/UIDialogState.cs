@@ -109,11 +109,9 @@ namespace RPG.UI
 
     public void VerifyQuest()
     {
-      if (npcControllerCmp != null)
-      {
-        bool hasQuestItem = npcControllerCmp.CheckPlayerQuestItem();
-       
-      }
+      if (npcControllerCmp == null) return;
+
+      currentStory.variablesState["questCompleted"] = npcControllerCmp.CheckPlayerQuestItem();
     }
   }
 }

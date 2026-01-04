@@ -1,4 +1,5 @@
 EXTERNAL VerifyQuest()
+VAR questCompleted = false
 
 -> start
 
@@ -16,7 +17,11 @@ Have you come across my precious candy?
 
 + [Yes]
   ~ VerifyQuest()
-  -> success
+  { questCompleted:
+    -> success
+    - else:
+    -> failure
+  }
 + [No]
   -> failure
 
