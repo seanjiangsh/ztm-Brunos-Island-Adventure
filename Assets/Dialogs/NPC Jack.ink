@@ -41,8 +41,7 @@ A small charm said to bring good luck, mild fortune, and an increased chance of 
 
 Treasure it wisely… or eat it—I mean, NO, don’t eat it. It’s not edible. Probably.
 
--> postCompletion
-
+-> DONE
 
 === failure ===
 The orcs… still have it?
@@ -57,8 +56,7 @@ Well… thank you for at least trying.
 If you ever track them down again, or reclaim my beloved candy orb, I will sing your praises across this entire region!  
 Or at least hum your praises quietly so I don’t attract wolves.
 
--> postCompletion
-
+-> DONE
 
 === postCompletion ===
 Thank you for listening to my tale of confectionery tragedy.

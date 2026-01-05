@@ -10,7 +10,7 @@ namespace RPG.Character
   {
     public TextAsset inkJSONAsset;
     public QuestItemSO desiredQuestItem;
-    private bool hasQuestItem = false;
+    public bool hasQuestItem = false;
     private Canvas canvasCmp;
 
     private void Awake()

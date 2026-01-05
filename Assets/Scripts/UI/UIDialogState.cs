@@ -45,6 +45,10 @@ namespace RPG.UI
       currentStory.BindExternalFunction("VerifyQuest", VerifyQuest);
       npcControllerCmp = npc.GetComponent<NPCController>();
       
+      if (npcControllerCmp.hasQuestItem)
+      {
+        currentStory.ChoosePathString("postCompletion");
+      }
       UpdateDialogue();
     }
 
