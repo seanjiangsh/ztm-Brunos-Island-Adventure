@@ -12,10 +12,12 @@ namespace RPG.Character
     public QuestItemSO desiredQuestItem;
     public bool hasQuestItem = false;
     private Canvas canvasCmp;
+    private Reward rewardCmp;
 
     private void Awake()
     {
       canvasCmp = GetComponentInChildren<Canvas>();
+      rewardCmp = GetComponent<Reward>();
     }
 
     private void OnTriggerEnter()
@@ -50,6 +52,12 @@ namespace RPG.Character
         .GetComponent<Inventory>();
       
       hasQuestItem = playerInventory.HasItem(desiredQuestItem);
+
+      if (hasQuestItem && rewardCmp != null)
+      {
+        rewardCmp.GrantReward();
+      }
+      
       return hasQuestItem;
     }
   }
