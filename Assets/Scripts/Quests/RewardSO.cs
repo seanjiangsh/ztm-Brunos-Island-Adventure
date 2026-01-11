@@ -12,7 +12,7 @@ namespace RPG.Quests
   {
     public float bonusHealth = 0f;
     public float bonusDamage = 0f;
-    public int bonusPoints = 0;
+    public int bonusPotions = 0;
     public bool forceWeaponSwap = false;
     public Weapons weapons = Weapons.Sword;
   }

@@ -12,7 +12,7 @@ namespace RPG.Character
   {
     [NonSerialized] public float healthPoints = 0f;
     [NonSerialized] public Slider healthBarCmp;
-    [SerializeField] public int potionCount = 1;
+    public int potionCount = 1;
 
     [SerializeField] private float healAmount = 15f;
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Quests.RewardSO
   bonusHealth: 25
   bonusDamage: 10
-  bonusPoints: 2
+  bonusPotions: 2
   forceWeaponSwap: 1
   weapons: 1
