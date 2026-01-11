@@ -1,6 +1,6 @@
 using UnityEngine;
 using RPG.Core;
-using System;
+using RPG.Quests; 
 
 
 namespace RPG.Character
@@ -33,6 +33,20 @@ namespace RPG.Character
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
       EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
     }
-  }
 
+    private void OnEnable()
+    {
+      EventManager.OnApplyReward += HandleReward;
+    }
+
+    private void OnDisable()
+    {
+      EventManager.OnApplyReward -= HandleReward;
+    }
+
+    private void HandleReward(RewardSO reward)
+    {
+      Debug.Log($"Player received reward");
+    }
+  }
 }
