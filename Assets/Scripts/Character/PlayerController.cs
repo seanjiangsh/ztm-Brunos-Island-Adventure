@@ -1,7 +1,7 @@
 using UnityEngine;
 using RPG.Core;
 using RPG.Quests; 
-
+using RPG.Utility;
 
 namespace RPG.Character
 {
@@ -11,6 +11,9 @@ namespace RPG.Character
     private Combat combatCmp;
 
     public CharacterStatsSO stats;
+    private GameObject axeWeapon;
+    private GameObject swordWeapon;
+    public Weapons currentWeapon = Weapons.Axe;
 
     private void Awake()
     {
@@ -23,6 +26,8 @@ namespace RPG.Character
       // Initialize player components and states here
       healthCmp = GetComponent<Health>();
       combatCmp = GetComponent<Combat>();
+      axeWeapon = GameObject.FindWithTag(Constants.AXE_TAG);
+      swordWeapon = GameObject.FindWithTag(Constants.SWORD_TAG);
     }
 
     private void Start()
@@ -32,6 +37,7 @@ namespace RPG.Character
 
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
       EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
+      SetWeapon();
     }
 
     private void OnEnable()
@@ -52,6 +58,11 @@ namespace RPG.Character
 
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
       EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
+    }
+
+    private void SetWeapon()
+    {
+      // TODO
     }
   }
 }
