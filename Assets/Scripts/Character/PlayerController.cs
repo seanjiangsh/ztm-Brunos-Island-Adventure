@@ -58,11 +58,26 @@ namespace RPG.Character
 
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
       EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
+
+      if (reward.forceWeaponSwap)
+      {
+        currentWeapon = reward.weapons;
+        SetWeapon();
+      }
     }
 
     private void SetWeapon()
     {
-      // TODO
+      if (currentWeapon == Weapons.Axe)
+      {
+        axeWeapon.SetActive(true);
+        swordWeapon.SetActive(false);
+      }
+      else if (currentWeapon == Weapons.Sword)
+      {
+        axeWeapon.SetActive(false);
+        swordWeapon.SetActive(true);
+      }
     }
   }
 }
