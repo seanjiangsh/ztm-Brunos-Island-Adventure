@@ -5,15 +5,21 @@ namespace RPG.Core
 {
   public class Portal : MonoBehaviour
   {
-    [SerializeField] private string targetSceneName;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private int nextSceneIndex;
+    private Collider colliderCmp;
+
+    private void Awake()
+    {
+      colliderCmp = GetComponent<Collider>();
+    }
 
     // Triggered when the box collider is entered
     private void OnTriggerEnter(Collider other)
     {
       if (!other.CompareTag(Constants.PLAYER_TAG))return;
       
-      Debug.Log($"Player entered portal to {targetSceneName}.");
+      colliderCmp.enabled = false;
+      SceneTranstion.Initiate(nextSceneIndex);
     }
   }
 }
