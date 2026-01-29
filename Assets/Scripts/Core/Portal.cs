@@ -19,6 +19,7 @@ namespace RPG.Core
       if (!other.CompareTag(Constants.PLAYER_TAG))return;
       
       colliderCmp.enabled = false;
+      EventManager.RaisePortalEnter(colliderCmp, nextSceneIndex);
       SceneTranstion.Initiate(nextSceneIndex);
     }
   }

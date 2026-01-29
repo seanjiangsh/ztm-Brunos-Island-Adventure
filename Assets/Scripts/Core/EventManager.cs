@@ -12,6 +12,7 @@ namespace RPG.Core
     public static event UnityAction<QuestItemSO> OnTreasureChestUnlocked;
     public static event UnityAction<bool> OnToggleUI;
     public static event UnityAction<RewardSO> OnApplyReward;
+    public static event UnityAction<Collider,int> OnPortalEnter;
 
     public static void RaiseChangePlayerHealth(float newHealthPoints)
     {
@@ -41,6 +42,11 @@ namespace RPG.Core
     public static void RaiseApplyReward(RewardSO reward)
     {
       OnApplyReward?.Invoke(reward);
+    }
+
+    public static void RaisePortalEnter(Collider portalCollider, int nextSceneIndex)
+    {
+      OnPortalEnter?.Invoke(portalCollider, nextSceneIndex);
     }
   }
 }
