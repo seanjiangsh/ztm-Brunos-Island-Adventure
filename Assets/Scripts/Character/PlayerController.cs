@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using RPG.Core;
 using RPG.Quests; 
@@ -7,8 +8,8 @@ namespace RPG.Character
 {
   public class PlayerController : MonoBehaviour
   {
-    private Health healthCmp;
-    private Combat combatCmp;
+    [NonSerialized] public Health healthCmp;
+    [NonSerialized] public Combat combatCmp;
 
     public CharacterStatsSO stats;
     private GameObject axeWeapon;

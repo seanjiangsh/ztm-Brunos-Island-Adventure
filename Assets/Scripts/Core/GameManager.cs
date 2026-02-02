@@ -1,4 +1,5 @@
 using UnityEngine;
+using RPG.Character;
 
 namespace RPG.Core
 {
@@ -15,8 +16,9 @@ namespace RPG.Core
     }
     private void HandlePortalEnter(Collider portalCollider, int sceneIndex)
     {
-      // Handle portal enter logic here
-      Debug.Log($"Player entered portal to scene {sceneIndex}");
+      PlayerController playerControllerCmp = portalCollider.GetComponent<PlayerController>();
+
+      PlayerPrefs.SetFloat("Health", playerControllerCmp.healthCmp.healthPoints);
     }
   }
 }
