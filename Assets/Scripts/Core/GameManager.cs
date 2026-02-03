@@ -19,6 +19,10 @@ namespace RPG.Core
       PlayerController playerControllerCmp = portalCollider.GetComponent<PlayerController>();
 
       PlayerPrefs.SetFloat("Health", playerControllerCmp.healthCmp.healthPoints);
+      PlayerPrefs.SetInt("Potions", playerControllerCmp.healthCmp.potionCount);
+      PlayerPrefs.SetFloat("Damage", playerControllerCmp.combatCmp.damage);
+      PlayerPrefs.SetInt("Weapon", (int)playerControllerCmp.currentWeapon);
+      PlayerPrefs.SetInt("SceneIndex", sceneIndex);
     }
   }
 }
