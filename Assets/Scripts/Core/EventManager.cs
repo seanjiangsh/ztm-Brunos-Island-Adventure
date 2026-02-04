@@ -44,9 +44,9 @@ namespace RPG.Core
       OnApplyReward?.Invoke(reward);
     }
 
-    public static void RaisePortalEnter(Collider portalCollider, int nextSceneIndex)
+    public static void RaisePortalEnter(Collider playerCollider, int nextSceneIndex)
     {
-      OnPortalEnter?.Invoke(portalCollider, nextSceneIndex);
+      OnPortalEnter?.Invoke(playerCollider, nextSceneIndex);
     }
   }
 }

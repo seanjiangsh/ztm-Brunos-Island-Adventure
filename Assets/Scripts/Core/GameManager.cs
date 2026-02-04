@@ -14,10 +14,9 @@ namespace RPG.Core
     {
       EventManager.OnPortalEnter -= HandlePortalEnter;
     }
-    private void HandlePortalEnter(Collider portalCollider, int sceneIndex)
+    private void HandlePortalEnter(Collider playerCollider, int sceneIndex)
     {
-      PlayerController playerControllerCmp = portalCollider.GetComponent<PlayerController>();
-
+      PlayerController playerControllerCmp = playerCollider.GetComponent<PlayerController>();
       PlayerPrefs.SetFloat("Health", playerControllerCmp.healthCmp.healthPoints);
       PlayerPrefs.SetInt("Potions", playerControllerCmp.healthCmp.potionCount);
       PlayerPrefs.SetFloat("Damage", playerControllerCmp.combatCmp.damage);

@@ -33,6 +33,8 @@ namespace RPG.Character
 
     private void Start()
     {
+      if(PlayerPrefs.HasKey("Health")) Debug.Log("Loading Player Stats from PlayerPrefs");
+     
       healthCmp.healthPoints = stats.health;
       combatCmp.damage = stats.damage;
 
