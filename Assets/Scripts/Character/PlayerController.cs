@@ -33,11 +33,19 @@ namespace RPG.Character
 
     private void Start()
     {
-      if(PlayerPrefs.HasKey("Health")) Debug.Log("Loading Player Stats from PlayerPrefs");
-     
-      healthCmp.healthPoints = stats.health;
-      combatCmp.damage = stats.damage;
-
+      if(PlayerPrefs.HasKey("Health"))
+      {
+        healthCmp.healthPoints = PlayerPrefs.GetFloat("Health");
+        healthCmp.potionCount = PlayerPrefs.GetInt("Potions");
+        combatCmp.damage = PlayerPrefs.GetFloat("Damage");
+        currentWeapon = (Weapons)PlayerPrefs.GetInt("Weapon");
+      }
+      else
+      {
+        healthCmp.healthPoints = stats.health;
+        combatCmp.damage = stats.damage;
+      }
+      
       EventManager.RaiseChangePlayerHealth(healthCmp.healthPoints);
       EventManager.RaiseChangePlayerPotion(healthCmp.potionCount);
       SetWeapon();
