@@ -6,10 +6,18 @@ namespace RPG.UI
 {
   public class UIMainMenuState : UIBaseState
   {
+    private int sceneIndex;
+
     public UIMainMenuState(UIController uiController) : base(uiController) { }
 
     public override void EnterState()
     {
+      if (PlayerPrefs.HasKey("SceneIndex"))
+      {
+        sceneIndex = PlayerPrefs.GetInt("SceneIndex");
+        AddButton();
+      }
+
       uiController.mainMenuElement.style.display = DisplayStyle.Flex;
 
       uiController.menuButtons = uiController.mainMenuElement
@@ -28,6 +36,19 @@ namespace RPG.UI
       {
         SceneTranstion.Initiate(1); // Load the game scene
       }
+    }
+
+    private void AddButton()
+    {
+      Button continueButton = new()
+      {
+        name = "continue-button",
+        text = "Continue"
+      };
+      continueButton.AddToClassList("menu-button");
+
+      VisualElement mainMenuButtons = uiController.mainMenuElement.Q<VisualElement>("buttons");
+      mainMenuButtons.Add(continueButton);
     }
   }
 }
