@@ -36,6 +36,10 @@ namespace RPG.UI
       {
         SceneTranstion.Initiate(1); // Load the game scene
       }
+      else
+      {
+        SceneTranstion.Initiate(sceneIndex); // Load the saved scene
+      }
     }
 
     private void AddButton()
