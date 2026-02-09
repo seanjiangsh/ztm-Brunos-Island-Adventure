@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec287746f6564e6449674946f55c8aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Portal
-  targetSceneName: 
-  spawnPoint: {fileID: 0}
+  nextSceneIndex: 0
+  spawnPoint: {fileID: 6292858747363505928}
 --- !u!1 &6840593711652152609
 GameObject:
   m_ObjectHideFlags: 0

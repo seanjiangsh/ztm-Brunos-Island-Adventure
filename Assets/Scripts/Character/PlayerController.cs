@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using RPG.Core;
 using RPG.Quests; 
 using RPG.Utility;
@@ -39,6 +40,9 @@ namespace RPG.Character
         healthCmp.potionCount = PlayerPrefs.GetInt("Potions");
         combatCmp.damage = PlayerPrefs.GetFloat("Damage");
         currentWeapon = (Weapons)PlayerPrefs.GetInt("Weapon");
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        Portal portalCmp = FindFirstObjectByType<Portal>();
       }
       else
       {
