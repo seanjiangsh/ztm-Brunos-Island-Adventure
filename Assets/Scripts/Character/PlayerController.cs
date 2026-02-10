@@ -41,8 +41,14 @@ namespace RPG.Character
         combatCmp.damage = PlayerPrefs.GetFloat("Damage");
         currentWeapon = (Weapons)PlayerPrefs.GetInt("Weapon");
 
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        NavMeshAgent agentCmp = GetComponent<NavMeshAgent>();
         Portal portalCmp = FindFirstObjectByType<Portal>();
+
+        if (portalCmp != null && agentCmp != null)
+        {
+          agentCmp.Warp(portalCmp.spawnPoint.position);
+          transform.rotation = portalCmp.spawnPoint.rotation * Quaternion.Euler(0, 180, 0);
+        }
       }
       else
       {
