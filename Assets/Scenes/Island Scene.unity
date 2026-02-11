@@ -40938,6 +40938,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 5824274367850802892, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: ID
+      value: Stationary Guard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120716,6 +120720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Patrol Guard 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5824274367850802892, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: ID
+      value: Patrol Guard 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -146552,6 +146560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Patrol Guard 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5824274367850802892, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: ID
+      value: Patrol Guard 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -152430,6 +152442,10 @@ PrefabInstance:
     - target: {fileID: 5564349348809912333, guid: 918d2e999503f8142a084227961ea760, type: 3}
       propertyPath: m_Name
       value: Enemy Patrol Guard 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824274367850802892, guid: 918d2e999503f8142a084227961ea760, type: 3}
+      propertyPath: ID
+      value: Patrol Guard 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

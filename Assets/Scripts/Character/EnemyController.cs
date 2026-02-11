@@ -21,6 +21,7 @@ namespace RPG.Character
 
     public float chaseRange = 2.5f;
     public float attackRange = 1.25f;
+    public string ID = "";
 
 
     private AIBaseState currentState;
@@ -36,6 +37,11 @@ namespace RPG.Character
       {
         Debug.LogError($"CharacterStatsSO is not assigned in EnemyController {name}.");
         return;
+      }
+
+      if (string.IsNullOrEmpty(ID))
+      {
+        Debug.LogWarning($"EnemyController {name} has an empty ID. Consider assigning a unique ID for better debugging and tracking.");
       }
 
       currentState = returnState;
