@@ -8,6 +8,7 @@ namespace RPG.Core
   public class GameManager:MonoBehaviour
   {
     private List<string> sceneEnemyIDs = new();
+    private List<GameObject> enemiesAlive = new();
 
     private void Start()
     {
@@ -44,6 +45,14 @@ namespace RPG.Core
       PlayerPrefs.SetFloat("Damage", playerControllerCmp.combatCmp.damage);
       PlayerPrefs.SetInt("Weapon", (int)playerControllerCmp.currentWeapon);
       PlayerPrefs.SetInt("SceneIndex", sceneIndex);
+
+      enemiesAlive.AddRange(GameObject.FindGameObjectsWithTag(Constants.ENEMY_TAG));
+      sceneEnemyIDs.ForEach(SaveDefeatedEnemies);
+    }
+
+    private void SaveDefeatedEnemies(string enemyID)
+    {
+      bool isEnemyAlive = false;
     }
   }
 }
