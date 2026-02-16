@@ -53,6 +53,21 @@ namespace RPG.Core
     private void SaveDefeatedEnemies(string enemyID)
     {
       bool isEnemyAlive = false;
+      
+      enemiesAlive.ForEach(enemy =>
+      {
+        if (enemy.TryGetComponent<EnemyController>(out var enemyControllerCmp))
+        {
+          if (enemyControllerCmp.ID == enemyID)
+          {
+            isEnemyAlive = true;
+          }
+        }
+      });
+
+      if (isEnemyAlive) return;
+
+      Debug.Log($"Enemy with ID {enemyID} is defeated.");
     }
   }
 }
