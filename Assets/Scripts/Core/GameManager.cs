@@ -67,7 +67,9 @@ namespace RPG.Core
 
       if (isEnemyAlive) return;
 
-      List<string> defeatedEnemies = new(){ enemyID };
+      List<string> defeatedEnemies = PlayerPrefsUtility.GetString("DefeatedEnemies");
+      defeatedEnemies.Add(enemyID);
+
       PlayerPrefsUtility.SetString("DefeatedEnemies", defeatedEnemies);
     }
   }

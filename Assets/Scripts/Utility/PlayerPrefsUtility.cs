@@ -13,5 +13,14 @@ namespace RPG.Utility
 
       Debug.Log($"Saved List<string> to PlayerPrefs with key '{key}': {serializedValue}");
     }
+
+    public static List<string> GetString(string key)
+    {
+      string serializedValue = PlayerPrefs.GetString(key, string.Empty);
+      List<string> value = new(serializedValue.Split(","));
+
+      Debug.Log($"Retrieved List<string> from PlayerPrefs with key '{key}': {serializedValue}");
+      return value;
+    }
   }
 }
