@@ -19,6 +19,12 @@ namespace RPG.Utility
       string serializedValue = PlayerPrefs.GetString(key, string.Empty);
       List<string> value = new(serializedValue.Split(","));
 
+      // Handle the case where the serialized value is empty, which would result in a list with one empty string element.
+      if (serializedValue == string.Empty && value.Count == 1)
+      {
+        value.RemoveAt(0);
+      }
+
       Debug.Log($"Retrieved List<string> from PlayerPrefs with key '{key}': {serializedValue}");
       return value;
     }
