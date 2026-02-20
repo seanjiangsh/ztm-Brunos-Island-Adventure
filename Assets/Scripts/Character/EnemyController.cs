@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using RPG.Utility;
 using RPG.Core;
 
@@ -67,6 +68,15 @@ namespace RPG.Character
         healthCmp.healthBarCmp.maxValue = stats.health;
         healthCmp.healthBarCmp.value = stats.health;
       }
+
+      List<string> defeatedEnemies = PlayerPrefsUtility.GetString("DefeatedEnemies");
+      defeatedEnemies.ForEach(defeatedEnemyID =>
+      {
+        if (defeatedEnemyID == ID)
+        {
+          Destroy(gameObject);
+        }
+      });
     }
 
     private void OnEnable()

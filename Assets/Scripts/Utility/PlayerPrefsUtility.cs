@@ -10,8 +10,6 @@ namespace RPG.Utility
     {
       string serializedValue = string.Join(",", value);
       PlayerPrefs.SetString(key, serializedValue);
-
-      Debug.Log($"Saved List<string> to PlayerPrefs with key '{key}': {serializedValue}");
     }
 
     public static List<string> GetString(string key)
@@ -25,7 +23,6 @@ namespace RPG.Utility
         value.RemoveAt(0);
       }
 
-      Debug.Log($"Retrieved List<string> from PlayerPrefs with key '{key}': {serializedValue}");
       return value;
     }
   }
