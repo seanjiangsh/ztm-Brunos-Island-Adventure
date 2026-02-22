@@ -110,12 +110,14 @@ namespace RPG.UI
       (currentState as UIDialogueState).SetStory(inkJSONAsset, npc);
     }
 
-    private void HandleTreasureChestUnlocked(QuestItemSO questItem)
+    private void HandleTreasureChestUnlocked(QuestItemSO questItem, bool showUI)
     {
+      if (!showUI) return;
+
+      questItemIcon.style.display = DisplayStyle.Flex;
       currentState = questItemState;
       currentState.EnterState();
       (currentState as UIQuestItemState).SetItemQuestLabel(questItem.itemName);
-      questItemIcon.style.display = DisplayStyle.Flex;    
     }
   }
 }

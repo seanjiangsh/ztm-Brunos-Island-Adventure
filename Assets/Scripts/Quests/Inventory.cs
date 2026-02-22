@@ -18,8 +18,10 @@ namespace RPG.Quests
       EventManager.OnTreasureChestUnlocked -= HandleTreasureChestUnlocked;
     }
 
-    public void HandleTreasureChestUnlocked(QuestItemSO item)
+    public void HandleTreasureChestUnlocked(QuestItemSO item, bool showUI)
     {
+      if (!showUI) return;
+      
       items.Add(item);
       Debug.Log($"Added {item.itemName} to inventory.");
     }

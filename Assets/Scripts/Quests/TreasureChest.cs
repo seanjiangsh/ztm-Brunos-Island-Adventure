@@ -40,7 +40,7 @@ namespace RPG.Quests
     {
       if (!isInteractable || hasBeenOpened || !context.performed) return;
 
-      EventManager.RaiseTreasureChestUnlocked(questItem);
+      EventManager.RaiseTreasureChestUnlocked(questItem, true);
       animatorCmp.SetBool(Constants.ANIMATOR_IS_SHAKING_PARAM, false);
       hasBeenOpened = true;
       Debug.Log("Treasure Chest Opened!");
