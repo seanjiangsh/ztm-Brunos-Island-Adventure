@@ -1,8 +1,9 @@
+using System;
+using System.Collections.Generic;
 using RPG.Utility;
 using RPG.Core; 
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
 
 namespace RPG.Quests
 {
@@ -14,6 +15,15 @@ namespace RPG.Quests
 
     private bool isInteractable = false;
     private bool hasBeenOpened = false;
+
+    private void Start()
+    {
+      if (PlayerPrefs.HasKey("PlayerItems"))
+      {
+        List<string> playerItems = PlayerPrefsUtility.GetString("PlayerItems");
+        playerItems.ForEach(CheckItem);
+      }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,6 +44,16 @@ namespace RPG.Quests
       animatorCmp.SetBool(Constants.ANIMATOR_IS_SHAKING_PARAM, false);
       hasBeenOpened = true;
       Debug.Log("Treasure Chest Opened!");
+    }
+
+    private void CheckItem(string itemName)
+    {
+      if (itemName != questItem.name) return;
+      
+      hasBeenOpened = true;
+      animatorCmp.SetBool(Constants.ANIMATOR_IS_SHAKING_PARAM, false);
+
+      EventManager.RaiseTreasureChestUnlocked(questItem);
     }
   }
 }
