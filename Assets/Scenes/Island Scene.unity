@@ -158525,6 +158525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Pumpkin Jack
       objectReference: {fileID: 0}
+    - target: {fileID: 2031729734709296909, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
+      propertyPath: m_TagString
+      value: NPCWithQuest
+      objectReference: {fileID: 0}
     - target: {fileID: 6766217574255003208, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
       propertyPath: reward
       value: 

@@ -52,6 +52,10 @@ namespace RPG.Core
 
       Inventory inventoryCmp = playerControllerCmp.GetComponent<Inventory>();
       inventoryCmp.items.ForEach(SaveQuestItem);
+
+      GameObject[] NPCObjects = GameObject.FindGameObjectsWithTag(Constants.NPC_QUEST_TAG);
+      List<GameObject> NPCsWithQuests = new(NPCObjects);
+      
     }
 
     private void SaveDefeatedEnemies(string enemyID)
