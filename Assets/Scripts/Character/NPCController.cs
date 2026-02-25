@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using RPG.Core;
 using RPG.Quests;
 using RPG.Utility;
+using System.Collections.Generic;
 
 namespace RPG.Character
 {
@@ -18,6 +19,15 @@ namespace RPG.Character
     {
       canvasCmp = GetComponentInChildren<Canvas>();
       rewardCmp = GetComponent<Reward>();
+    }
+
+    private void Start()
+    {
+      if (PlayerPrefs.HasKey("NPCItems"))
+      {
+        List<string> npcItems = PlayerPrefsUtility.GetString("NPCItems");
+        npcItems.ForEach(CheckNPCQuestItem);
+      }
     }
 
     private void OnTriggerEnter()
@@ -59,6 +69,14 @@ namespace RPG.Character
       }
       
       return hasQuestItem;
+    }
+
+    private void CheckNPCQuestItem(string itemName)
+    {
+      if (itemName == desiredQuestItem.itemName)
+      {
+        hasQuestItem = true;
+      }
     }
   }
 }
