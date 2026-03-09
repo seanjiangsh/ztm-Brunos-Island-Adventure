@@ -1,12 +1,26 @@
 using UnityEngine;
+using UnityEngine.Playables;
+using RPG.Utility;
 
 namespace RPG.Core
 {
   public class CinematicController : MonoBehaviour
   {
+    private PlayableDirector playableDirectorCmp;
+    private Collider colliderCmp;
+
+    private void Awake()
+    {
+      playableDirectorCmp = GetComponent<PlayableDirector>();
+      colliderCmp = GetComponent<Collider>();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
-      Debug.Log($"CinematicController triggered by {other.name}");
+      if (!other.CompareTag("Player")) return;
+
+      playableDirectorCmp.Play();
+      colliderCmp.enabled = false;
     }
   }
 }
