@@ -14,6 +14,18 @@ namespace RPG.Core
       playableDirectorCmp = GetComponent<PlayableDirector>();
       colliderCmp = GetComponent<Collider>();
     }
+
+    private void OnEnable()
+    {
+      playableDirectorCmp.played += HandlePlaying;
+      playableDirectorCmp.stopped += HandleStopped;
+    }
+
+    private void OnDisable()
+    {
+      playableDirectorCmp.played -= HandlePlaying;
+      playableDirectorCmp.stopped -= HandleStopped;
+    }
     
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +33,16 @@ namespace RPG.Core
 
       playableDirectorCmp.Play();
       colliderCmp.enabled = false;
+    }
+
+    private void HandlePlaying(PlayableDirector director)
+    {
+      Debug.Log("Cinematic is playing");
+    }
+
+    private void HandleStopped(PlayableDirector director)
+    {
+      Debug.Log("Cinematic has stopped");
     }
   }
 }
