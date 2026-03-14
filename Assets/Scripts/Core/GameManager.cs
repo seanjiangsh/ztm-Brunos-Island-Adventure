@@ -3,6 +3,7 @@ using UnityEngine;
 using RPG.Character;
 using RPG.Utility;
 using RPG.Quests;
+using UnityEngine.InputSystem;
 
 namespace RPG.Core
 {
@@ -10,6 +11,12 @@ namespace RPG.Core
   {
     private List<string> sceneEnemyIDs = new();
     private List<GameObject> enemiesAlive = new();
+    private PlayerInput playerInputCmp;
+
+    private void Awake()
+    {
+      playerInputCmp = GetComponent<PlayerInput>();
+    }
 
     private void Start()
     {
@@ -32,11 +39,13 @@ namespace RPG.Core
     private void OnEnable()
     {
       EventManager.OnPortalEnter += HandlePortalEnter;
+      EventManager.OnCutSceneUpdate += HandleCutSceneUpdate;
     }
 
     private void OnDisable()
     {
       EventManager.OnPortalEnter -= HandlePortalEnter;
+      EventManager.OnCutSceneUpdate -= HandleCutSceneUpdate;
     }
     private void HandlePortalEnter(Collider playerCollider, int sceneIndex)
     {
@@ -96,6 +105,18 @@ namespace RPG.Core
       List <string> npcQuestItems = PlayerPrefsUtility.GetString("NPCItems");
       npcQuestItems.Add(npcControllerCmp.desiredQuestItem.itemName);
       PlayerPrefsUtility.SetString("NPCItems", npcQuestItems);
+    }
+
+    private void HandleCutSceneUpdate(bool isEnabled)
+    {
+      if (isEnabled)
+      {
+        playerInputCmp.enabled = true;
+      }
+      else
+      {
+        playerInputCmp.enabled = false;
+      }
     }
   }
 }

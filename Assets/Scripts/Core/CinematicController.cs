@@ -37,12 +37,12 @@ namespace RPG.Core
 
     private void HandlePlaying(PlayableDirector director)
     {
-      Debug.Log("Cinematic is playing");
+      EventManager.RaiseCutSceneUpdate(false);
     }
 
     private void HandleStopped(PlayableDirector director)
     {
-      Debug.Log("Cinematic has stopped");
+      EventManager.RaiseCutSceneUpdate(true);
     }
   }
 }

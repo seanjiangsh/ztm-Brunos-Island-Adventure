@@ -13,6 +13,7 @@ namespace RPG.Core
     public static event UnityAction<bool> OnToggleUI;
     public static event UnityAction<RewardSO> OnApplyReward;
     public static event UnityAction<Collider,int> OnPortalEnter;
+    public static event UnityAction<bool> OnCutSceneUpdate;
 
     public static void RaiseChangePlayerHealth(float newHealthPoints)
     {
@@ -47,6 +48,11 @@ namespace RPG.Core
     public static void RaisePortalEnter(Collider playerCollider, int nextSceneIndex)
     {
       OnPortalEnter?.Invoke(playerCollider, nextSceneIndex);
+    }
+
+    public static void RaiseCutSceneUpdate(bool isEnabled)
+    {
+      OnCutSceneUpdate?.Invoke(isEnabled);
     }
   }
 }
