@@ -15,6 +15,11 @@ namespace RPG.Core
       colliderCmp = GetComponent<Collider>();
     }
 
+    private void Start()
+    {
+      colliderCmp.enabled = !PlayerPrefs.HasKey("SceneIndex");
+    }
+
     private void OnEnable()
     {
       playableDirectorCmp.played += HandlePlaying;
