@@ -18,6 +18,7 @@ namespace RPG.Core
     // Triggered when the box collider is entered
     private void OnTriggerEnter(Collider other)
     {
+      Debug.Log("Player entered the portal trigger.");
       if (!other.CompareTag(Constants.PLAYER_TAG))return;
       
       colliderCmp.enabled = false;
