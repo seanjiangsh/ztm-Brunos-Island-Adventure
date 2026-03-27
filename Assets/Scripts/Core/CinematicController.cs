@@ -8,6 +8,7 @@ namespace RPG.Core
   {
     private PlayableDirector playableDirectorCmp;
     private Collider colliderCmp;
+    [SerializeField]private bool customPlayOnAwake = false;
 
     private void Awake()
     {
@@ -18,6 +19,10 @@ namespace RPG.Core
     private void Start()
     {
       colliderCmp.enabled = !PlayerPrefs.HasKey("SceneIndex");
+      if (!customPlayOnAwake) return;
+      
+      colliderCmp.enabled = false;
+      playableDirectorCmp.Play();
     }
 
     private void OnEnable()
