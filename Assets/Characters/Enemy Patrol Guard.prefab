@@ -393,6 +393,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: -0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3201286759925566203, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e968164f2b8fe542b0edba5490dbb70, type: 3}
     - target: {fileID: 3334281051195596576, guid: 8e2478afa26ae044ea49efcda9d89d23, type: 3}
       propertyPath: m_Controller
       value: 
