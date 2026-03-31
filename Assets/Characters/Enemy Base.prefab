@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 3334281051195596576}
   - component: {fileID: 2068712927827563753}
   - component: {fileID: 3201286759925566203}
+  - component: {fileID: 4224069968695822752}
   m_Layer: 0
   m_Name: KayKit Animated Character_v1.2
   m_TagString: Untagged
@@ -890,6 +891,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4224069968695822752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353687525098381280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d8aadd5bd14154985108119039c81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Character.AttackSoundEffect
 --- !u!1 &8434114768889980693
 GameObject:
   m_ObjectHideFlags: 0

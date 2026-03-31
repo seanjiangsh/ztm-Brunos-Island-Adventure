@@ -159314,6 +159314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7bc04de4dff4a42ab6fdb7d23afaf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Core.CinematicController
+  customPlayOnAwake: 0
 --- !u!1001 &1999264482
 PrefabInstance:
   m_ObjectHideFlags: 0
