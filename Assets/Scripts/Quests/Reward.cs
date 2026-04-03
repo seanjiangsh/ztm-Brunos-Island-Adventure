@@ -13,6 +13,11 @@ namespace RPG.Quests
       if (rewardTaken) return;
       EventManager.RaiseApplyReward(reward);
       rewardTaken = true;
+
+      AudioSource rewardAudio = GetComponent<AudioSource>();
+      if (rewardAudio != null) {
+        rewardAudio.Play();
+      }
     }
   }
 }
