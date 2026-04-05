@@ -23,6 +23,8 @@ namespace RPG.UI
     public UIMainMenuState mainMenuState;
     public UIDialogueState dialogueState;
     public UIQuestItemState questItemState;
+    public UIVictoryState victoryState;
+    public UIGameOverState gameOverState;
     public List<Button> menuButtons = new();
     public int selectedButtonIndex = 0;
 
@@ -40,6 +42,8 @@ namespace RPG.UI
       mainMenuState = new UIMainMenuState(this);
       dialogueState = new UIDialogueState(this);
       questItemState = new UIQuestItemState(this);
+      victoryState = new UIVictoryState(this);
+      gameOverState = new UIGameOverState(this);
     }
 
     void OnEnable()
