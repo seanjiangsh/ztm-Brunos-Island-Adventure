@@ -69,3 +69,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.UI.UIController
   selectedButtonIndex: 0
+  victoryAudio: {fileID: 8300000, guid: 856e3d08deef4f640a47132c0182ba18, type: 3}
+  gameOverAudio: {fileID: 8300000, guid: 3417793892fcc544291c2c73d0c6c2d4, type: 3}

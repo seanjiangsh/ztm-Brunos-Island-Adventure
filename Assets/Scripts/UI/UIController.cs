@@ -27,6 +27,8 @@ namespace RPG.UI
     public UIGameOverState gameOverState;
     public List<Button> menuButtons = new();
     public int selectedButtonIndex = 0;
+    public AudioClip victoryAudio;
+    public AudioClip gameOverAudio;
 
     private void Awake()
     {
