@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -29,9 +30,11 @@ namespace RPG.UI
     public int selectedButtonIndex = 0;
     public AudioClip victoryAudio;
     public AudioClip gameOverAudio;
+    [NonSerialized] public AudioSource audioSourceCmp;
 
     private void Awake()
     {
+      audioSourceCmp = GetComponent<AudioSource>();
       uiDocumentCmp = GetComponent<UIDocument>();
       rootElement = uiDocumentCmp.rootVisualElement;
 
