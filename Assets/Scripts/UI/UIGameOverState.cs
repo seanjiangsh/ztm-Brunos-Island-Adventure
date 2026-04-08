@@ -23,6 +23,9 @@ namespace RPG.UI
         Constants.UI_ACTION_MAP
       );
       gameOverContainer.style.display = DisplayStyle.Flex;
+
+      uiController.audioSourceCmp.clip = uiController.gameOverAudio;
+      uiController.audioSourceCmp.PlayOneShot(uiController.gameOverAudio);
     }
 
     public override void SelectButton()
