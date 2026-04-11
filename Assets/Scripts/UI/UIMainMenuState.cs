@@ -35,7 +35,7 @@ namespace RPG.UI
       if (button.name == "start-button")
       {
         PlayerPrefs.DeleteAll(); // Clear saved data for a new game
-        SceneTranstion.Initiate(1); // Load the game scene
+        uiController.StartCoroutine(SceneTranstion.Initiate(1)); // Load the game scene
       }
       else
       {

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,8 +6,9 @@ namespace RPG.Core
 {
   public static class SceneTranstion
   {
-    public static void Initiate(int sceneIndex)
+    public static IEnumerator Initiate(int sceneIndex)
     {
+      yield return true;
       SceneManager.LoadScene(sceneIndex);
     }
   }
