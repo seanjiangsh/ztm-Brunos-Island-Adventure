@@ -39,7 +39,7 @@ namespace RPG.UI
       }
       else
       {
-        SceneTranstion.Initiate(sceneIndex); // Load the saved scene
+        uiController.StartCoroutine(SceneTranstion.Initiate(sceneIndex)); // Load the saved scene
       }
     }
 
