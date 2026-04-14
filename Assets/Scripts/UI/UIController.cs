@@ -150,5 +150,13 @@ namespace RPG.UI
       currentState = gameOverState;
       currentState.EnterState();
     }
+
+    public void HandlePause(InputAction.CallbackContext context)
+    {
+      if (!context.performed) return;
+
+      currentState = currentState is UIPauseState ? unpausedState : pauseState;
+      currentState.EnterState();
+    }
   }
 }
