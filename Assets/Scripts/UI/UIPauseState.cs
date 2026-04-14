@@ -1,0 +1,27 @@
+using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+using RPG.Utility;
+using RPG.Core;
+
+namespace RPG.UI
+{
+  public class UIPauseState : UIBaseState
+  {
+    public UIPauseState(UIController uiController) : base(uiController) { }
+
+    public override void EnterState()
+    {
+      PlayerInput playerInputCmp = GameObject.FindGameObjectWithTag(
+        Constants.GAME_MANAGER_TAG
+      ).GetComponent<PlayerInput>();
+      VisualElement pauseContainer = uiController.rootElement
+        .Q<VisualElement>("pause-container");
+
+      playerInputCmp.SwitchCurrentActionMap(Constants.UI_ACTION_MAP);
+      pauseContainer.style.display = DisplayStyle.Flex;
+    }
+
+    public override void SelectButton() { }
+  }
+}

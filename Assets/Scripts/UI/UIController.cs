@@ -26,6 +26,10 @@ namespace RPG.UI
     public UIQuestItemState questItemState;
     public UIVictoryState victoryState;
     public UIGameOverState gameOverState;
+    public UIPauseState pauseState;
+    public UIUnpausedState unpausedState;
+
+
     public List<Button> menuButtons = new();
     public int selectedButtonIndex = 0;
     public AudioClip victoryAudio;
@@ -49,6 +53,8 @@ namespace RPG.UI
       questItemState = new UIQuestItemState(this);
       victoryState = new UIVictoryState(this);
       gameOverState = new UIGameOverState(this);
+      pauseState = new UIPauseState(this);
+      unpausedState = new UIUnpausedState(this);
     }
 
     void OnEnable()
