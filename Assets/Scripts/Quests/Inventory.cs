@@ -35,5 +35,11 @@ namespace RPG.Quests
       });
       return found;
     }
+
+    public void RemoveItem(QuestItemSO itemToRemove)
+    {
+      items.RemoveAll(item => item.name == itemToRemove.name);
+      Debug.Log($"Removed {itemToRemove.itemName} from inventory.");
+    }
   }
 }

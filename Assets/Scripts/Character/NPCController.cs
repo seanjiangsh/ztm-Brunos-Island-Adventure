@@ -66,6 +66,8 @@ namespace RPG.Character
       if (hasQuestItem && rewardCmp != null)
       {
         rewardCmp.GrantReward();
+        playerInventory.RemoveItem(desiredQuestItem);
+        EventManager.RaiseSetQuestItemIconVisible(false);
       }
       
       return hasQuestItem;

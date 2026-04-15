@@ -23,6 +23,7 @@ namespace RPG.UI
 
       uiController.audioSourceCmp.clip = uiController.victoryAudio;
       uiController.audioSourceCmp.Play();
+      uiController.canPause = false;
     }
 
     public override void SelectButton()

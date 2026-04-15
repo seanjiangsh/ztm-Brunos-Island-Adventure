@@ -26,6 +26,7 @@ namespace RPG.UI
 
       uiController.audioSourceCmp.clip = uiController.gameOverAudio;
       uiController.audioSourceCmp.PlayOneShot(uiController.gameOverAudio);
+      uiController.canPause = false;
     }
 
     public override void SelectButton()

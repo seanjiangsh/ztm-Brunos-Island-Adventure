@@ -12,6 +12,7 @@ namespace RPG.Core
     public static event UnityAction<QuestItemSO, bool> OnTreasureChestUnlocked;
     public static event UnityAction<bool> OnToggleUI;
     public static event UnityAction<RewardSO> OnApplyReward;
+    public static event UnityAction<bool> OnSetQuestItemIconVisible;
     public static event UnityAction<Collider,int> OnPortalEnter;
     public static event UnityAction<bool> OnCutSceneUpdate;
     public static event UnityAction OnVictory;
@@ -45,6 +46,11 @@ namespace RPG.Core
     public static void RaiseApplyReward(RewardSO reward)
     {
       OnApplyReward?.Invoke(reward);
+    }
+
+    public static void RaiseSetQuestItemIconVisible(bool isVisible)
+    {
+      OnSetQuestItemIconVisible?.Invoke(isVisible);
     }
 
     public static void RaisePortalEnter(Collider playerCollider, int nextSceneIndex)

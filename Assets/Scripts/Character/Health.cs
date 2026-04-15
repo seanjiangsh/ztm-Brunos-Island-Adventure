@@ -78,7 +78,8 @@ namespace RPG.Character
       if (CompareTag(Constants.PLAYER_TAG))
       {
         EventManager.RaiseGameOver();
-      }else if (CompareTag(Constants.BOSS_TAG))
+      }
+      else if (CompareTag(Constants.BOSS_TAG))
       {
         EventManager.RaiseVictory();
       }

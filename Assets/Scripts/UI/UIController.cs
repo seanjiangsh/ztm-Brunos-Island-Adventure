@@ -18,7 +18,7 @@ namespace RPG.UI
     public VisualElement playerInfoElement;
     public Label healthLabel;
     public Label potionsLabel;
-    private VisualElement questItemIcon;
+    
 
     public UIBaseState currentState;
     public UIMainMenuState mainMenuState;
@@ -28,6 +28,7 @@ namespace RPG.UI
     public UIGameOverState gameOverState;
     public UIPauseState pauseState;
     public UIUnpausedState unpausedState;
+    public bool canPause = true;
 
 
     public List<Button> menuButtons = new();
@@ -46,7 +47,7 @@ namespace RPG.UI
       playerInfoElement = rootElement.Q<VisualElement>("player-info-container");
       healthLabel = playerInfoElement.Q<Label>("health-label");
       potionsLabel = playerInfoElement.Q<Label>("potions-label");
-      questItemIcon = rootElement.Q<VisualElement>("quest-item-icon");
+      
 
       mainMenuState = new UIMainMenuState(this);
       dialogueState = new UIDialogueState(this);
@@ -63,6 +64,7 @@ namespace RPG.UI
       EventManager.OnChangePlayerPotion += HandlePotionCountChange;
       EventManager.OnInitiateDialogue += HandleInitiateDialogue;
       EventManager.OnTreasureChestUnlocked += HandleTreasureChestUnlocked;
+      EventManager.OnSetQuestItemIconVisible += HandleSetQuestItemIconVisible;
       EventManager.OnVictory += HandleVictory;
       EventManager.OnGameOver += HandleGameOver;
     }
@@ -89,6 +91,7 @@ namespace RPG.UI
       EventManager.OnChangePlayerPotion -= HandlePotionCountChange;
       EventManager.OnInitiateDialogue -= HandleInitiateDialogue;
       EventManager.OnTreasureChestUnlocked -= HandleTreasureChestUnlocked;
+      EventManager.OnSetQuestItemIconVisible -= HandleSetQuestItemIconVisible;
       EventManager.OnVictory -= HandleVictory;
       EventManager.OnGameOver -= HandleGameOver;
     }
@@ -133,10 +136,19 @@ namespace RPG.UI
     {
       if (!showUI) return;
 
-      questItemIcon.style.display = DisplayStyle.Flex;
+      EventManager.RaiseSetQuestItemIconVisible(true);
+
       currentState = questItemState;
       currentState.EnterState();
       (currentState as UIQuestItemState).SetItemQuestLabel(questItem.itemName);
+    }
+
+    private void HandleSetQuestItemIconVisible(bool isVisible)
+    {
+      VisualElement questItemIcon = rootElement.Q<VisualElement>("quest-item-icon");
+      if (questItemIcon == null) return;
+
+      questItemIcon.style.display = isVisible ? DisplayStyle.Flex : DisplayStyle.None;
     }
 
     private void HandleVictory()
@@ -153,7 +165,7 @@ namespace RPG.UI
 
     public void HandlePause(InputAction.CallbackContext context)
     {
-      if (!context.performed) return;
+      if (!context.performed || !canPause) return;
 
       currentState = currentState is UIPauseState ? unpausedState : pauseState;
       currentState.EnterState();

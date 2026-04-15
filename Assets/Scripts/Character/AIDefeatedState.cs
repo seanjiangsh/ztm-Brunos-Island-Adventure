@@ -7,6 +7,7 @@ namespace RPG.Character
 
     public override void EnterState(EnemyController enemy)
     {
+      Debug.Log($"Enemy {enemy.name} has been defeated.");
       AudioSource audioSource = enemy.GetComponent<AudioSource>();
       if (audioSource == null) return;
       
