@@ -20,6 +20,8 @@ namespace RPG.UI
 
       playerInputCmp.SwitchCurrentActionMap(Constants.UI_ACTION_MAP);
       pauseContainer.style.display = DisplayStyle.Flex;
+
+      Time.timeScale = 0f;
     }
 
     public override void SelectButton() { }

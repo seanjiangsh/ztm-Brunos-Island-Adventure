@@ -18,8 +18,10 @@ namespace RPG.UI
       VisualElement pauseContainer = uiController.rootElement
         .Q<VisualElement>("pause-container");
 
-      playerInputCmp.SwitchCurrentActionMap(Constants.UI_ACTION_MAP);
+      playerInputCmp.SwitchCurrentActionMap(Constants.GAMEPLAY_ACTION_MAP);
       pauseContainer.style.display = DisplayStyle.None;
+
+      Time.timeScale = 1f;
     }
 
     public override void SelectButton() { }
