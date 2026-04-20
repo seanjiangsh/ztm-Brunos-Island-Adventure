@@ -11,6 +11,11 @@ namespace RPG.Character
 
     public override void UpdateState(EnemyController enemy)
     {
+      if (enemy.patrolCmp == null || enemy.movementCmp == null)
+      {
+        return;
+      }
+
       if (enemy.distanceFromPlayer < enemy.chaseRange)
       {
         enemy.SwitchState(enemy.chaseState);

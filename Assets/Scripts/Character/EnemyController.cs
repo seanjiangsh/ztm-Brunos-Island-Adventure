@@ -37,6 +37,7 @@ namespace RPG.Character
       if (stats == null)
       {
         Debug.LogError($"CharacterStatsSO is not assigned in EnemyController {name}.");
+        enabled = false;
         return;
       }
 
@@ -81,18 +82,29 @@ namespace RPG.Character
 
     private void OnEnable()
     {
-      healthCmp.OnStartDefeated += HandleStartDefeated;
+      if (healthCmp != null)
+      {
+        healthCmp.OnStartDefeated += HandleStartDefeated;
+      }
       EventManager.OnToggleUI += HandleToggleUI;
     }
 
     private void OnDisable()
     {
-      healthCmp.OnStartDefeated -= HandleStartDefeated;
+      if (healthCmp != null)
+      {
+        healthCmp.OnStartDefeated -= HandleStartDefeated;
+      }
       EventManager.OnToggleUI -= HandleToggleUI;
     }
 
     private void Update()
     {
+      if (currentState == null)
+      {
+        return;
+      }
+
       CalculateDistanceFromPlayer();
       currentState.UpdateState(this);
     }

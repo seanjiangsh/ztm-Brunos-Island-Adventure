@@ -23,25 +23,44 @@ namespace RPG.Character
 
     private void Awake()
     {
-      if (splineGameObject == null)
+      splineCmp = splineGameObject != null
+        ? splineGameObject.GetComponent<SplineContainer>()
+        : GetComponent<SplineContainer>();
+
+      if (splineCmp == null)
       {
-        Debug.LogWarning($"{name}: does not have a spline.");
+        Debug.LogWarning($"{name}: missing SplineContainer reference for patrol.");
         return;
       }
-      splineCmp = splineGameObject.GetComponent<SplineContainer>();
-      splineLength = splineCmp.CalculateLength();
+
+      splineLength = Mathf.Max(splineCmp.CalculateLength(), 0.001f);
       agentCmp = GetComponent<NavMeshAgent>();
+
+      if (agentCmp == null)
+      {
+        Debug.LogWarning($"{name}: missing NavMeshAgent component for patrol.");
+      }
       // print($"{name} Spline Length: {splineLength}");
     }
 
     public Vector3 GetNextPosition()
     {
+      if (splineCmp == null)
+      {
+        return transform.position;
+      }
+
       // Get the position on the spline at the specified distance
       return splineCmp.EvaluatePosition(splinePosition);
     }
 
     public void CalculateNextPosition()
     {
+      if (splineCmp == null || agentCmp == null)
+      {
+        return;
+      }
+
       walkTime += Time.deltaTime;
       if (walkTime >= walkDuration)
       {
@@ -76,6 +95,11 @@ namespace RPG.Character
 
     public Vector3 GetFartherOutPosition()
     {
+      if (splineCmp == null)
+      {
+        return transform.position;
+      }
+
       float tmpSplinePosition = splinePosition + 0.02f;
       if (tmpSplinePosition > 1f)
       {
