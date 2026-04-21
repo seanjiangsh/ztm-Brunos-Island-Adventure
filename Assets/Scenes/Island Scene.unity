@@ -1594,7 +1594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e097ec9c38c47b0499081cca506f4962, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.07
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e097ec9c38c47b0499081cca506f4962, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47140,7 +47140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 23c25531f9411894aaba1894cddc2a85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: 0.998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 23c25531f9411894aaba1894cddc2a85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56087,7 +56087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bd80f139d3e2eb4aa5a134fd0e49813, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.02
+      value: 1.051
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bd80f139d3e2eb4aa5a134fd0e49813, type: 3}
       propertyPath: m_LocalPosition.z
@@ -144136,7 +144136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 183158257518150579, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.38
+      value: -8.21
       objectReference: {fileID: 0}
     - target: {fileID: 183158257518150579, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -144144,7 +144144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183158257518150579, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.52
+      value: 2.41
       objectReference: {fileID: 0}
     - target: {fileID: 183158257518150579, guid: 754cb813aac71f945bc66633f3cf5e2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -146048,7 +146048,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 03a4c67a827ef9b479bf12d7cd0b1d80, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 80ddc5f10c2fe7f47806762996e8936b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &2033579405
 Transform:
